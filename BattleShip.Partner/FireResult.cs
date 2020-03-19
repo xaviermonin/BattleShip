@@ -1,4 +1,6 @@
-﻿namespace BattleShip.PlayerBehavior
+﻿using BattleShip.PlayerBehavior.Ships;
+
+namespace BattleShip.PlayerBehavior
 {
     /// <summary>
     /// Résultat du tir.
