@@ -1,63 +1,78 @@
-﻿using BattleShip.Engine;
+﻿using BattleShip.PlayerBehavior.Ships;
 using System;
-using System.Collections.Generic;
 using System.Drawing;
-using System.Text;
 
-namespace BattleShip.PlayerBehavior
+namespace BattleShip.Engine
 {
     /// <summary>
-    /// Navire
+    /// Navire.
     /// </summary>
     public class Ship
     {
         /// <summary>
-        /// Position de la proue
+        /// Position de la proue.
+        /// Position bas / droite.
         /// </summary>
-        public Point BowPosition { get; set; }
+        public Point TopLeft { get; }
         
         /// <summary>
-        /// Position de la poupe
+        /// Position de la poupe.
+        /// Position haut / gauche.
         /// </summary>
-        public Point SternPosition { get; set; }
+        public Point BottomRight { get; }
 
         /// <summary>
-        /// Points de vie
+        /// Points de vie restant.
         /// </summary>
-        public int HealthPoint { get; set; }
+        public int HealthPoint { get; private set; }
 
         /// <summary>
-        /// Longueur
+        /// Longueur.
         /// </summary>
-        public int Lenght { get; set; }
+        public int Lenght { get; }
 
         /// <summary>
-        /// Orientation
+        /// Orientation du navire.
         /// </summary>
-        public Orientation Orientation { get; set; }
+        public Orientation Orientation { get; }
 
-        public ShipState State { get; set; }
-    }
+        /// <summary>
+        /// Etat du navire: Intact, touché ou coulé.
+        /// </summary>
+        public ShipState State
+        {
+            get
+            {
+                if (HealthPoint == Lenght)
+                    return ShipState.Intact;
+                else if (HealthPoint <= 0)
+                    return ShipState.Sunk;
+                else
+                    return ShipState.Hit;
+            }
+        }
 
-    public enum Orientation
-    {
-        Horizontal,
-        Vertical
-    }
+        /// <summary>
+        /// Classe du navire.
+        /// </summary>
+        public ClassOfShip? Class { get; }
 
-    public enum ShipState
-    {
+        public Ship(ShipPosition shipPosition)
+        {
+            Orientation = shipPosition.Orientation;
+            Lenght = shipPosition.ClassOfShipInfo.Lenght;
+            BottomRight = shipPosition.Coordonate;
+            TopLeft = shipPosition.Coordonate + shipPosition.Size;
+            Class = shipPosition.Class;
+            HealthPoint = Lenght;
+        }
+
         /// <summary>
-        /// Intact
+        /// Touche le navire et modifie son état.
         /// </summary>
-        Intact,
-        /// <summary>
-        /// Touché
-        /// </summary>
-        Hit,
-        /// <summary>
-        /// Coulé
-        /// </summary>
-        Sunk
+        internal void Hit()
+        {
+            --HealthPoint;
+        }
     }
 }

@@ -8,9 +8,20 @@ namespace BattleShip.Simulator
     {
         static void Main(string[] args)
         {
-            Game game = new Game();
-            game.InitializePartners(new DumbIA(), new DumbIA());
+            Console.WriteLine("Simulateur de bataile navale.");
 
+            Console.WriteLine("Initialisation du jeu ...");
+
+            Game game = new Game();
+            game.InitializePlayers(new DumbIA(), new DumbIA());
+
+            while (game.State != GameState.End)
+                game.Update();
+
+            if (game.Winner == GameWinner.Player1)
+                Console.WriteLine("Le joueur 1 a gagné !");
+            else if (game.Winner == GameWinner.Player2)
+                Console.WriteLine("Le joueur 2 a gagné !");
         }
     }
 }

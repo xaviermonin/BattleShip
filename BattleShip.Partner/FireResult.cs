@@ -8,7 +8,7 @@ namespace BattleShip.PlayerBehavior
     public struct FireResult : System.IEquatable<FireResult>
     {
         /// <summary>
-        /// Navire touché ou coulé. Nul si le tir est manqué.
+        /// Navire coulé. Renseigné uniquement lorsque le navire est coulé sinon nul.
         /// </summary>
         public ClassOfShip? Ship { get; set; }
 
@@ -41,12 +41,5 @@ namespace BattleShip.PlayerBehavior
         {
             throw new System.NotImplementedException();
         }
-    }
-
-    public enum FireState
-    {
-        Hit,
-        Sunk,
-        Miss
     }
 }

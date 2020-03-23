@@ -8,28 +8,42 @@ namespace BattleShip.PlayerBehavior.Ships
     /// <summary>
     /// Position complète du navire sur le plateau.
     /// </summary>
-    public struct ShipPosition : IEquatable<ShipPosition>
+    public class ShipPosition : IEquatable<ShipPosition>
     {
         /// <summary>
         /// Classe du navire.
         /// </summary>
-        public ClassOfShip ClassOfShip { get; set; }
+        public ClassOfShip Class { get; }
 
         /// <summary>
         /// Position (haut / gauche) du navire sur le plateau.
         /// </summary>
-        public Point Coordonate { get; set; }
+        public Point Coordonate { get; }
 
         /// <summary>
         /// Orientation du navire.
         /// </summary>
-        public Orientation Orientation { get; set; }
+        public Orientation Orientation { get; }
+
+        public ClassOfShipInfo ClassOfShipInfo { get; }
+
+        public Size Size
+        {
+            get
+            {
+                if (Orientation == Orientation.Horizontal)
+                    return new Size(ClassOfShipInfo.Lenght, 0);
+                else
+                    return new Size(0, ClassOfShipInfo.Lenght);
+            }
+        }
 
         public ShipPosition(ClassOfShip classOfShip, Point coordonate, Orientation orientation)
         {
-            ClassOfShip = classOfShip;
+            Class = classOfShip;
             Coordonate = coordonate;
             Orientation = orientation;
+            ClassOfShipInfo = ClassOfShipInfo.FromClassOfShip(classOfShip);
         }
 
         public override bool Equals(object obj)
@@ -42,11 +56,14 @@ namespace BattleShip.PlayerBehavior.Ships
 
         public override int GetHashCode()
         {
-            return ClassOfShip.GetHashCode() ^ Coordonate.GetHashCode() ^ Orientation.GetHashCode();
+            return Class.GetHashCode() ^ Coordonate.GetHashCode() ^ Orientation.GetHashCode();
         }
 
         public static bool operator ==(ShipPosition left, ShipPosition right)
         {
+            if (object.ReferenceEquals(left, null) || object.ReferenceEquals(right, null))
+                return false;
+
             return left.Equals(right);
         }
 
@@ -57,9 +74,12 @@ namespace BattleShip.PlayerBehavior.Ships
 
         public bool Equals(ShipPosition other)
         {
-            return this.ClassOfShip == other.ClassOfShip &&
-                   this.Coordonate == other.Coordonate &&
-                   this.Orientation == other.Orientation;
+            if (other == null)
+                return false;
+
+            return Class == other.Class &&
+                   Coordonate == other.Coordonate &&
+                   Orientation == other.Orientation;
         }
     }
 }
