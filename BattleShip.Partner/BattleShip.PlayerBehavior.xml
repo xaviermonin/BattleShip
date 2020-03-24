@@ -1,0 +1,209 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>BattleShip.PlayerBehavior</name>
+    </assembly>
+    <members>
+        <member name="T:BattleShip.PlayerBehavior.FireResult">
+            <summary>
+            Résultat du tir.
+            </summary>
+        </member>
+        <member name="P:BattleShip.PlayerBehavior.FireResult.Ship">
+            <summary>
+            Navire coulé. Renseigné uniquement lorsque le navire est coulé sinon nul.
+            </summary>
+        </member>
+        <member name="P:BattleShip.PlayerBehavior.FireResult.State">
+            <summary>
+            Etat du tir: Touché, Coulé, Manqué.
+            </summary>
+        </member>
+        <member name="T:BattleShip.PlayerBehavior.FireState">
+            <summary>
+            Etat du tir: Manqué, touché ou coulé.
+            </summary>
+        </member>
+        <member name="T:BattleShip.PlayerBehavior.IFireAuthorization">
+            <summary>
+            Autorisation de tirer. Permet d'effectuer un tir à des coordonnées du plateau de jeu.
+            </summary>
+        </member>
+        <member name="M:BattleShip.PlayerBehavior.IFireAuthorization.Fire(System.Drawing.Point)">
+            <summary>
+            Tirer à des coordonnées du plateau de jeu.
+            Le plateau de jeu est de 10x10, commence aux coordonnées 0x0 et se termine à 9x9.
+            </summary>
+            <param name="coordonate">Coordonnées de tir (X, Y)</param>
+            <returns>Résultat du tir (Touché, Coulé, Manqué)</returns>
+        </member>
+        <member name="T:BattleShip.PlayerBehavior.IPlayerBehavior">
+            <summary>
+            Comportement d'un joueur de la bataille navale.
+            Permet de placer les navires sur son plateau et de tirer à des coordonnées du plateau ennemi.
+            </summary>
+        </member>
+        <member name="P:BattleShip.PlayerBehavior.IPlayerBehavior.ShipPositions">
+            <summary>
+            Positionnement des navires.
+            Les classes de navires doivent être positionnées.
+            Le plateau de jeu est de 10x10, commence à 0x0 et se termine à 9x9.
+            </summary>
+            <param name="board"></param>
+        </member>
+        <member name="M:BattleShip.PlayerBehavior.IPlayerBehavior.Fire(BattleShip.PlayerBehavior.IFireAuthorization)">
+            <summary>
+            Donne l'autorisation de tirer sur le plateau ennemi.
+            </summary>
+            <param name="fireAuthorization">Autorisation de tirer. Permet de tirer sur le plateau adverse</param>
+        </member>
+        <member name="T:BattleShip.PlayerBehavior.Ships.ClassOfShip">
+            <summary>
+            Classe de navire.
+            </summary>
+        </member>
+        <member name="F:BattleShip.PlayerBehavior.Ships.ClassOfShip.Destroyer">
+            <summary>
+            Destroyer. Navire de 2 cases.
+            </summary>
+        </member>
+        <member name="F:BattleShip.PlayerBehavior.Ships.ClassOfShip.Cruiser">
+            <summary>
+            Croiseur. Navire de 3 cases.
+            </summary>
+        </member>
+        <member name="F:BattleShip.PlayerBehavior.Ships.ClassOfShip.BattleShip1">
+            <summary>
+            Cuirassé. Navire de 4 cases.
+            </summary>
+        </member>
+        <member name="F:BattleShip.PlayerBehavior.Ships.ClassOfShip.BattleShip2">
+            <summary>
+            Cuirassé. Navire de 4 cases.
+            </summary>
+        </member>
+        <member name="F:BattleShip.PlayerBehavior.Ships.ClassOfShip.Carrier">
+            <summary>
+            Porte-avion. Navire de 5 cases.
+            </summary>
+        </member>
+        <member name="T:BattleShip.PlayerBehavior.Ships.ClassOfShipInfo">
+            <summary>
+            Information sur la classe de navire.
+            </summary>
+        </member>
+        <member name="P:BattleShip.PlayerBehavior.Ships.ClassOfShipInfo.Name">
+            <summary>
+            Nom du navire.
+            </summary>
+        </member>
+        <member name="P:BattleShip.PlayerBehavior.Ships.ClassOfShipInfo.Lenght">
+            <summary>
+            Taille du navire.
+            </summary>
+        </member>
+        <member name="P:BattleShip.PlayerBehavior.Ships.ClassOfShipInfo.ClassOfShip">
+            <summary>
+            Classe du navire.
+            </summary>
+        </member>
+        <member name="M:BattleShip.PlayerBehavior.Ships.ClassOfShipInfo.FromClassOfShip(BattleShip.PlayerBehavior.Ships.ClassOfShip)">
+            <summary>
+            Obtient l'information du navire à partir de la classe de navire.
+            </summary>
+            <param name="classOfShip"></param>
+            <returns></returns>
+        </member>
+        <member name="T:BattleShip.PlayerBehavior.Ships.Orientation">
+            <summary>
+            Orientation du navire.
+            </summary>
+        </member>
+        <member name="F:BattleShip.PlayerBehavior.Ships.Orientation.Horizontal">
+            <summary>
+            Horizontal
+            </summary>
+        </member>
+        <member name="F:BattleShip.PlayerBehavior.Ships.Orientation.Vertical">
+            <summary>
+            Vertical
+            </summary>
+        </member>
+        <member name="T:BattleShip.PlayerBehavior.Ships.ShipPosition">
+            <summary>
+            Position complète du navire sur le plateau 10x10.
+            Le positionnement sur le plateau commence à 0x0 et se termine à 9x9.
+            </summary>
+        </member>
+        <member name="P:BattleShip.PlayerBehavior.Ships.ShipPosition.Class">
+            <summary>
+            Classe du navire.
+            </summary>
+        </member>
+        <member name="P:BattleShip.PlayerBehavior.Ships.ShipPosition.Coordonate">
+            <summary>
+            Position (haut / gauche) du navire sur le plateau (10x10).
+            Le plateau commence à 0x0 et se termine à 9x9.
+            </summary>
+        </member>
+        <member name="P:BattleShip.PlayerBehavior.Ships.ShipPosition.Orientation">
+            <summary>
+            Orientation du navire: Vertical ou horizontal.
+            </summary>
+        </member>
+        <member name="P:BattleShip.PlayerBehavior.Ships.ShipPosition.ClassOfShipInfo">
+            <summary>
+            Information sur la classe du navire.
+            </summary>
+        </member>
+        <member name="P:BattleShip.PlayerBehavior.Ships.ShipPosition.Size">
+            <summary>
+            Taille du navire.
+            </summary>
+        </member>
+        <member name="M:BattleShip.PlayerBehavior.Ships.ShipPosition.#ctor(BattleShip.PlayerBehavior.Ships.ClassOfShip,System.Drawing.Point,BattleShip.PlayerBehavior.Ships.Orientation)">
+            <summary>
+            Construit la position complète d'un navire.
+            </summary>
+            <param name="classOfShip">Classe du navire.</param>
+            <param name="coordonate">Coordonnées X et Y du navire sur le plateau 10x10. Le plateau commence à 0x0 et se termine à 9x9.</param>
+            <param name="orientation">Orientation du navire (Verical ou Horizontal).</param>
+        </member>
+        <member name="M:BattleShip.PlayerBehavior.Ships.ShipPosition.Equals(System.Object)">
+            <summary>
+            Comparateur d'égalité.
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BattleShip.PlayerBehavior.Ships.ShipPosition.GetHashCode">
+            <summary>
+            Obtient le hashcode.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BattleShip.PlayerBehavior.Ships.ShipPosition.op_Equality(BattleShip.PlayerBehavior.Ships.ShipPosition,BattleShip.PlayerBehavior.Ships.ShipPosition)">
+            <summary>
+            Opérateur d'égalité.
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BattleShip.PlayerBehavior.Ships.ShipPosition.op_Inequality(BattleShip.PlayerBehavior.Ships.ShipPosition,BattleShip.PlayerBehavior.Ships.ShipPosition)">
+            <summary>
+            Opérateur d'inégalité.
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BattleShip.PlayerBehavior.Ships.ShipPosition.Equals(BattleShip.PlayerBehavior.Ships.ShipPosition)">
+            <summary>
+            Compare une instance de <see cref="T:BattleShip.PlayerBehavior.Ships.ShipPosition"/> avec une autre.
+            </summary>
+            <param name="other"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

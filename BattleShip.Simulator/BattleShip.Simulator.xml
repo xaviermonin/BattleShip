@@ -1,0 +1,133 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>BattleShip.Simulator</name>
+    </assembly>
+    <members>
+        <member name="T:BattleShip.Simulator.BattleShipSimulator">
+            <summary>
+            Simulateur de bataille navale.
+            Fait combattre 2 IA et indique le vainqueur.
+            </summary>
+        </member>
+        <member name="F:BattleShip.Simulator.BattleShipSimulator._behaviorType1">
+            <summary>
+            Comportement de l'IA 1 et 2.
+            </summary>
+        </member>
+        <member name="F:BattleShip.Simulator.BattleShipSimulator._behaviorType2">
+            <summary>
+            Comportement de l'IA 1 et 2.
+            </summary>
+        </member>
+        <member name="F:BattleShip.Simulator.BattleShipSimulator._nbIterations">
+            <summary>
+            Nombre de combat de bataille navale à effectuer dans la simulation.
+            </summary>
+        </member>
+        <member name="M:BattleShip.Simulator.BattleShipSimulator.#ctor(System.Type,System.Type)">
+            <summary>
+            Construit un simulateur de combat de bataille navale.
+            </summary>
+            <param name="behaviorType1">Comportement (IA) du joueur 1.</param>
+            <param name="behaviorType2">Comportement (IA) du joueur 2.</param>
+        </member>
+        <member name="M:BattleShip.Simulator.BattleShipSimulator.RunMultiplesMatches">
+            <summary>
+            Effectue de multiples matches (10 000) et indique le gagnant.
+            </summary>
+        </member>
+        <member name="M:BattleShip.Simulator.BattleShipSimulator.RunOneMatch">
+            <summary>
+            Effectue un match entre les 2 joueurs et indique le gagnant.
+            </summary>
+            <returns>Gagnant</returns>
+        </member>
+        <member name="T:BattleShip.Simulator.MatchesResult">
+            <summary>
+            Résultat des matches de bataille navale.
+            </summary>
+        </member>
+        <member name="F:BattleShip.Simulator.MatchesResult._behavior1">
+            <summary>
+            Comportements.
+            </summary>
+        </member>
+        <member name="F:BattleShip.Simulator.MatchesResult._behavior2">
+            <summary>
+            Comportements.
+            </summary>
+        </member>
+        <member name="P:BattleShip.Simulator.MatchesResult.GameWinner">
+            <summary>
+            Gagnant des matches.
+            </summary>
+        </member>
+        <member name="P:BattleShip.Simulator.MatchesResult.WinnerBehaviorType">
+            <summary>
+            Comportement (IA) gagnante.
+            </summary>
+        </member>
+        <member name="P:BattleShip.Simulator.MatchesResult.LooserBehaviorType">
+            <summary>
+            Comportement (IA) gagnante.
+            </summary>
+        </member>
+        <member name="P:BattleShip.Simulator.MatchesResult.WinnerVictories">
+            <summary>
+            Nombre de victoires du gagnant.
+            </summary>
+        </member>
+        <member name="P:BattleShip.Simulator.MatchesResult.LooserVictories">
+            <summary>
+            Nombre de victoires du perdant.
+            </summary>
+        </member>
+        <member name="P:BattleShip.Simulator.MatchesResult.Player1Victories">
+            <summary>
+            Nombre de victoire du joueur 1.
+            </summary>
+        </member>
+        <member name="P:BattleShip.Simulator.MatchesResult.Player2Victories">
+            <summary>
+            Nombre de victoire du joueur 2.
+            </summary>
+        </member>
+        <member name="P:BattleShip.Simulator.MatchesResult.Player1WinRate">
+            <summary>
+            Taux de victoire du joueur 1.
+            Exprimé de 0 à 100.
+            </summary>
+        </member>
+        <member name="P:BattleShip.Simulator.MatchesResult.Player2WinRate">
+            <summary>
+            Taux de victoire du joueur 2.
+            Exprimé de 0 à 100.
+            </summary>
+        </member>
+        <member name="P:BattleShip.Simulator.MatchesResult.WinnerWinRate">
+            <summary>
+            Taux de victorie du gagnant.
+            </summary>
+        </member>
+        <member name="P:BattleShip.Simulator.MatchesResult.LooserWinRate">
+            <summary>
+            Taux de victoire du perdant.
+            </summary>
+        </member>
+        <member name="P:BattleShip.Simulator.MatchesResult.TotalMatches">
+            <summary>
+            Nombre total de matches joués par les joueurs.
+            </summary>
+        </member>
+        <member name="M:BattleShip.Simulator.MatchesResult.#ctor(System.Int32,System.Int32,System.Type,System.Type)">
+            <summary>
+            Constructeur d'un résultat de matches.
+            </summary>
+            <param name="player1Victories">Nombre de victoires du joueur 1.</param>
+            <param name="player2Victories">Nombre de victoires du joueur 2.</param>
+            <param name="behavior1">Comportement du joueur 1.</param>
+            <param name="behavior2">Comportement du joueur 2.</param>
+        </member>
+    </members>
+</doc>

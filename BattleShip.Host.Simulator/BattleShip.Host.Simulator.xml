@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>BattleShip.Host.Simulator</name>
+    </assembly>
+    <members>
+        <member name="F:BattleShip.Host.Simulator.Program.behaviorType1">
+            <summary>
+            Comportement du joueur 1.
+            </summary>
+        </member>
+        <member name="F:BattleShip.Host.Simulator.Program.behaviorType2">
+            <summary>
+            Comportement du joueur 2.
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,247 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>BattleShip.Engine</name>
+    </assembly>
+    <members>
+        <member name="T:BattleShip.Engine.Board">
+            <summary>
+            Plateau de la bataile navale.
+            Permet de placer des navires et de tirer sur une cellule du plateau.
+            </summary>
+        </member>
+        <member name="F:BattleShip.Engine.Board.ships">
+            <summary>
+            Liste des navires placés sur le plateau.
+            </summary>
+        </member>
+        <member name="F:BattleShip.Engine.Board.BoardSide">
+            <summary>
+            Taille du coté du plateau.
+            </summary>
+        </member>
+        <member name="P:BattleShip.Engine.Board.Ships">
+            <summary>
+            Navires placés.
+            </summary>
+        </member>
+        <member name="P:BattleShip.Engine.Board.Cells">
+            <summary>
+            Cases du plateau.
+            </summary>
+        </member>
+        <member name="P:BattleShip.Engine.Board.IsAllShipsSunk">
+            <summary>
+            Indique si tous les navires sont coulés.
+            </summary>
+        </member>
+        <member name="M:BattleShip.Engine.Board.#ctor">
+            <summary>
+            Construit un plateau de jeu de la bataille navale.
+            </summary>
+        </member>
+        <member name="M:BattleShip.Engine.Board.PlaceShip(System.Collections.Generic.IEnumerable{BattleShip.PlayerBehavior.Ships.ShipPosition})">
+            <summary>
+            Place les navires sur le plateau.
+            </summary>
+            <param name="shipsPosition"></param>
+        </member>
+        <member name="M:BattleShip.Engine.Board.Fire(System.Drawing.Point)">
+            <summary>
+            Tir aux coordonnées indiquées sur ce plateau.
+            </summary>
+            <param name="fireCoordonate"></param>
+            <returns></returns>
+        </member>
+        <member name="T:BattleShip.Engine.Cell">
+            <summary>
+            Case d'un plateau.
+            </summary>
+        </member>
+        <member name="P:BattleShip.Engine.Cell.X">
+            <summary>
+            Coordonnée X de la cellule.
+            </summary>
+        </member>
+        <member name="P:BattleShip.Engine.Cell.Y">
+            <summary>
+            Coordonnée Y de la cellule.
+            </summary>
+        </member>
+        <member name="P:BattleShip.Engine.Cell.Ship">
+            <summary>
+            Navire ayant un point sur cette case.
+            </summary>
+        </member>
+        <member name="P:BattleShip.Engine.Cell.Hit">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:BattleShip.Engine.Cell.IsEmpty">
+            <summary>
+            Indique si la case est vide (sans navire).
+            </summary>
+        </member>
+        <member name="M:BattleShip.Engine.Cell.#ctor(System.UInt32,System.UInt32)">
+            <summary>
+            Construit une cellule.
+            </summary>
+            <param name="x">Coordonnée X</param>
+            <param name="y">Coordonnée Y</param>
+        </member>
+        <member name="M:BattleShip.Engine.Cell.ToString">
+            <summary>
+            Affiche les coordonnés de la cellule.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:BattleShip.Engine.FireAuthorization">
+            <summary>
+            Autorisation de tir.
+            Permet d'effectuer un tir sur le plateau ennemi et d'obtenir le résultat du tir.
+            </summary>
+        </member>
+        <member name="F:BattleShip.Engine.FireAuthorization.fire">
+            <summary>
+            Tir effectué ?
+            </summary>
+        </member>
+        <member name="P:BattleShip.Engine.FireAuthorization.Board">
+            <summary>
+            Plateau cible.
+            </summary>
+        </member>
+        <member name="M:BattleShip.Engine.FireAuthorization.Fire(System.Drawing.Point)">
+            <summary>
+            Action de tir sur le plateau ennemi.
+            </summary>
+            <param name="coordonate"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BattleShip.Engine.Game.InitializePlayers(BattleShip.PlayerBehavior.IPlayerBehavior,BattleShip.PlayerBehavior.IPlayerBehavior)">
+            <summary>
+            Initialise les plateaux des joueurs.
+            Demande à chaque joueur de positionner les navires sur le plateau.
+            </summary>
+            <param name="playerBehavior1"></param>
+            <param name="playerBehavior2"></param>
+        </member>
+        <member name="M:BattleShip.Engine.Game.Update">
+            <summary>
+            Met à jour le jeu.
+            Demande à chaque joueur d'effectuer sa logique de jeu.
+            </summary>
+        </member>
+        <member name="T:BattleShip.Engine.GameState">
+            <summary>
+            Etat du jeu de bataille navale.
+            </summary>
+        </member>
+        <member name="T:BattleShip.Engine.Player">
+            <summary>
+            Joueur de la bataille navale.
+            Décrit son comportement et son plateau.
+            </summary>
+        </member>
+        <member name="M:BattleShip.Engine.Player.#ctor(BattleShip.PlayerBehavior.IPlayerBehavior)">
+            <summary>
+            Construit un joueur à partir son comportement.
+            </summary>
+            <param name="playerBehavior"></param>
+        </member>
+        <member name="P:BattleShip.Engine.Player.Behavior">
+            <summary>
+            Comportement du joueur.
+            </summary>
+        </member>
+        <member name="P:BattleShip.Engine.Player.Board">
+            <summary>
+            Plateau de jeu du joueur.
+            </summary>
+        </member>
+        <member name="P:BattleShip.Engine.Player.State">
+            <summary>
+            Etat du joueur: A gagné, perdu.
+            </summary>
+        </member>
+        <member name="M:BattleShip.Engine.Player.Fire(BattleShip.Engine.Player)">
+            <summary>
+            Tir sur le joueur ennemi.
+            </summary>
+            <param name="enemy"></param>
+        </member>
+        <member name="M:BattleShip.Engine.Player.PlaceShip">
+            <summary>
+            Place les navires sur le plateau.
+            </summary>
+        </member>
+        <member name="T:BattleShip.Engine.Ship">
+            <summary>
+            Navire.
+            </summary>
+        </member>
+        <member name="P:BattleShip.Engine.Ship.TopLeft">
+            <summary>
+            Position de la proue.
+            Position bas / droite.
+            </summary>
+        </member>
+        <member name="P:BattleShip.Engine.Ship.BottomRight">
+            <summary>
+            Position de la poupe.
+            Position haut / gauche.
+            </summary>
+        </member>
+        <member name="P:BattleShip.Engine.Ship.HealthPoint">
+            <summary>
+            Points de vie restant.
+            </summary>
+        </member>
+        <member name="P:BattleShip.Engine.Ship.Lenght">
+            <summary>
+            Longueur.
+            </summary>
+        </member>
+        <member name="P:BattleShip.Engine.Ship.Orientation">
+            <summary>
+            Orientation du navire.
+            </summary>
+        </member>
+        <member name="P:BattleShip.Engine.Ship.State">
+            <summary>
+            Etat du navire: Intact, touché ou coulé.
+            </summary>
+        </member>
+        <member name="P:BattleShip.Engine.Ship.Class">
+            <summary>
+            Classe du navire.
+            </summary>
+        </member>
+        <member name="M:BattleShip.Engine.Ship.Hit">
+            <summary>
+            Touche le navire et modifie son état.
+            </summary>
+        </member>
+        <member name="T:BattleShip.Engine.ShipState">
+            <summary>
+            Défini l'état d'un navire
+            </summary>
+        </member>
+        <member name="F:BattleShip.Engine.ShipState.Intact">
+            <summary>
+            Intact
+            </summary>
+        </member>
+        <member name="F:BattleShip.Engine.ShipState.Hit">
+            <summary>
+            Touché
+            </summary>
+        </member>
+        <member name="F:BattleShip.Engine.ShipState.Sunk">
+            <summary>
+            Coulé
+            </summary>
+        </member>
+    </members>
+</doc>
