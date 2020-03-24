@@ -5,7 +5,7 @@ namespace BattleShip.PlayerBehavior
     /// <summary>
     /// Résultat du tir.
     /// </summary>
-    public struct FireResult : System.IEquatable<FireResult>
+    public class FireResult
     {
         /// <summary>
         /// Navire coulé. Renseigné uniquement lorsque le navire est coulé sinon nul.
@@ -16,30 +16,5 @@ namespace BattleShip.PlayerBehavior
         /// Etat du tir: Touché, Coulé, Manqué.
         /// </summary>
         public FireState State { get; set; }
-
-        public override bool Equals(object obj)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public override int GetHashCode()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public static bool operator ==(FireResult left, FireResult right)
-        {
-            return left.Equals(right);
-        }
-
-        public static bool operator !=(FireResult left, FireResult right)
-        {
-            return !(left == right);
-        }
-
-        public bool Equals(FireResult other)
-        {
-            throw new System.NotImplementedException();
-        }
     }
 }

@@ -6,10 +6,11 @@ using System.Drawing;
 namespace BattleShip.PlayerBehavior.IA
 {
     /// <summary>
-    /// Mauvaise IA.
-    /// Positionne de façon fixe les navires et tir au hasard.
+    /// IA qui pense avoir la chance de son coté.
+    /// Tir n'importe où et parfois au même endroit.
+    /// Positionne de façon fixe les navires.
     /// </summary>
-    public class DumbIA : IPlayerBehavior
+    public class FullRandomBehavior : IPlayerBehavior
     {
         private readonly Random random = new Random();
 
@@ -28,21 +29,10 @@ namespace BattleShip.PlayerBehavior.IA
         /// <summary>
         /// Tir au hasard sur le plateau adverse.
         /// </summary>
-        /// <param name="fireAuthorization"></param>
+        /// <param name="fireAuthorization">Autorisation de tir. Permet de tirer sur le plateau ennemi.</param>
         public void Fire(IFireAuthorization fireAuthorization)
         {
-            var result = fireAuthorization.Fire(new Point(random.Next(0, 10), random.Next(0, 10)));
-
-            /*switch (result.State)
-            {
-                case FireState.Hit: 
-                    break;
-                case FireState.Miss:
-                    break;
-                case FireState.Sunk:
-                    var shipSunk = result.Ship.Value;
-                    break;
-            }*/
+            fireAuthorization.Fire(new Point(random.Next(0, 10), random.Next(0, 10)));
         }
     }
 }

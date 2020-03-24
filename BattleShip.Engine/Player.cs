@@ -47,7 +47,7 @@ namespace BattleShip.Engine
         }
 
         /// <summary>
-        /// Tir sur le joueur enemi.
+        /// Tir sur le joueur ennemi.
         /// </summary>
         /// <param name="enemy"></param>
         internal void Fire(Player enemy)

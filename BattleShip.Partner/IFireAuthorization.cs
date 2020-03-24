@@ -12,6 +12,7 @@ namespace BattleShip.PlayerBehavior
     {
         /// <summary>
         /// Tirer à des coordonnées du plateau de jeu.
+        /// Le plateau de jeu est de 10x10, commence aux coordonnées 0x0 et se termine à 9x9.
         /// </summary>
         /// <param name="coordonate">Coordonnées de tir (X, Y)</param>
         /// <returns>Résultat du tir (Touché, Coulé, Manqué)</returns>

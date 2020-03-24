@@ -1,14 +1,22 @@
 ﻿using BattleShip.Engine.Exception;
 using BattleShip.PlayerBehavior;
 using BattleShip.PlayerBehavior.Ships;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 
 namespace BattleShip.Engine
 {
+    /// <summary>
+    /// Plateau de la bataile navale.
+    /// Permet de placer des navires et de tirer sur une cellule du plateau.
+    /// </summary>
     public class Board
     {
+        /// <summary>
+        /// Liste des navires placés sur le plateau.
+        /// </summary>
         private readonly List<Ship> ships = new List<Ship>();
 
         /// <summary>
@@ -26,6 +34,9 @@ namespace BattleShip.Engine
         /// </summary>
         private Cell[,] Cells { get; set; }
 
+        /// <summary>
+        /// Indique si tous les navires sont coulés.
+        /// </summary>
         public bool IsAllShipsSunk => Ships.All(s => s.State == ShipState.Sunk);
 
         /// <summary>
@@ -35,10 +46,10 @@ namespace BattleShip.Engine
         {
             Cells = new Cell[BoardSide, BoardSide];
 
-            for (int x = 0; x < BoardSide; ++x)
+            for (uint x = 0; x < BoardSide; ++x)
             {
-                for (int y = 0; y < BoardSide; ++y)
-                    Cells[x, y] = new Cell();
+                for (uint y = 0; y < BoardSide; ++y)
+                    Cells[x, y] = new Cell(x, y);
             }
         }
 
@@ -51,6 +62,9 @@ namespace BattleShip.Engine
             if (ships.Count > 0)
                 throw new InvalidBoardException("Les navires ont déjà été disposés sur le plateau.");
 
+            if (shipsPosition.Count() != Enum.GetNames(typeof(ClassOfShip)).Length)
+                throw new InvalidBoardException($"{Enum.GetNames(typeof(ClassOfShip)).Length} navires doivent être ajoutés.");
+
             foreach (var shipPos in shipsPosition)
             {
                 if (shipsPosition.Any(s => s.Class == shipPos.Class && !s.Equals(shipPos)))
@@ -59,7 +73,7 @@ namespace BattleShip.Engine
                 if (shipPos.Coordonate.X < 0 || shipPos.Coordonate.Y < 0 ||
                     shipPos.Coordonate.X > BoardSide - 1 || shipPos.Coordonate.Y > BoardSide - 1)
                 {
-                    throw new InvalidBoardException($"Le navire n'est pas positionné dans le plateau ({BoardSide}x{BoardSide})");
+                    throw new InvalidBoardException($"Le navire n'est pas positionné sur le plateau ({BoardSide}x{BoardSide})");
                 }
 
                 Size sizeIncrement = shipPos.Orientation == Orientation.Horizontal ? new Size(1, 0) : new Size(0, 1);
