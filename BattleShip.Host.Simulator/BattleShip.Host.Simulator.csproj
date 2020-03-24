@@ -1,0 +1,13 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BattleShip.Partner.IA\BattleShip.PlayerBehavior.IA.csproj" />
+    <ProjectReference Include="..\BattleShip.Simulator\BattleShip.Simulator.csproj" />
+  </ItemGroup>
+
+</Project>
