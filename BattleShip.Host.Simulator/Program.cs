@@ -16,7 +16,7 @@ namespace BattleShip.Host.Simulator
         /// </summary>
         static readonly Type behaviorType2 = typeof(SmartBehavior);
 
-        static void Main(string[] args)
+        static void Main()
         {
             Console.WriteLine("Simulateur de bataile navale.");
 

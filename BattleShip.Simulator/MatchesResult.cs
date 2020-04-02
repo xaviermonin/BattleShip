@@ -11,9 +11,14 @@ namespace BattleShip.Simulator
     public class MatchesResult
     {
         /// <summary>
-        /// Comportements.
+        /// Comportement du joueur 1.
         /// </summary>
-        Type _behavior1, _behavior2;
+        private readonly Type _behavior1;
+
+        /// <summary>
+        /// Comportement du joueur 2.
+        /// </summary>
+        private readonly Type _behavior2;
 
         /// <summary>
         /// Gagnant des matches.

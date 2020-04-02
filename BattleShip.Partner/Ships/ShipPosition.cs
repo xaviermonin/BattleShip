@@ -90,7 +90,7 @@ namespace BattleShip.PlayerBehavior.Ships
         /// <returns></returns>
         public static bool operator ==(ShipPosition left, ShipPosition right)
         {
-            if (ReferenceEquals(left, null) || ReferenceEquals(right, null))
+            if (left is null || right is null)
                 return false;
 
             return left.Equals(right);
@@ -114,7 +114,7 @@ namespace BattleShip.PlayerBehavior.Ships
         /// <returns></returns>
         public bool Equals(ShipPosition other)
         {
-            if (ReferenceEquals(other,null))
+            if (other is null)
                 return false;
 
             return Class == other.Class &&
