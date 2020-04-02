@@ -5,8 +5,17 @@
     /// </summary>
     public enum FireState
     {
+        /// <summary>
+        /// Touché.
+        /// </summary>
         Hit,
+        /// <summary>
+        /// Coulé.
+        /// </summary>
         Sunk,
+        /// <summary>
+        /// Manqué.
+        /// </summary>
         Miss
     }
 }

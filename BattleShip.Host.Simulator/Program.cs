@@ -14,7 +14,7 @@ namespace BattleShip.Host.Simulator
         /// <summary>
         /// Comportement du joueur 2.
         /// </summary>
-        static readonly Type behaviorType2 = typeof(PartialRandomBehavior);
+        static readonly Type behaviorType2 = typeof(SmartBehavior);
 
         static void Main(string[] args)
         {
@@ -26,7 +26,7 @@ namespace BattleShip.Host.Simulator
             var matchResult = battleShipSimulator.RunMultiplesMatches();
 
             Console.WriteLine($"La meilleur IA est : {matchResult.WinnerBehaviorType.Name}.");
-            Console.WriteLine($"Le taux de victoire est de {matchResult.WinnerWinRate}%");
+            Console.WriteLine($"Le taux de victoire est de {matchResult.WinnerWinRate:P2}");
             Console.WriteLine($"{matchResult.WinnerVictories} à {matchResult.LooserVictories}.");
         }
     }

@@ -7,6 +7,7 @@ namespace BattleShip.PlayerBehavior
 {
     /// <summary>
     /// Autorisation de tirer. Permet d'effectuer un tir à des coordonnées du plateau de jeu.
+    /// Le plateau de jeu est de 10x10, commence à 0x0 et se termine à 9x9.
     /// </summary>
     public interface IFireAuthorization
     {

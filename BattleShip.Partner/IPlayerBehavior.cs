@@ -14,11 +14,11 @@ namespace BattleShip.PlayerBehavior
         /// Les classes de navires doivent être positionnées.
         /// Le plateau de jeu est de 10x10, commence à 0x0 et se termine à 9x9.
         /// </summary>
-        /// <param name="board"></param>
         IEnumerable<ShipPosition> ShipPositions { get; }
 
         /// <summary>
         /// Donne l'autorisation de tirer sur le plateau ennemi.
+        /// Le plateau de jeu est de 10x10, commence à 0x0 et se termine à 9x9.
         /// </summary>
         /// <param name="fireAuthorization">Autorisation de tirer. Permet de tirer sur le plateau adverse</param>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Design", "CA1030:Utiliser des événements quand cela est approprié",

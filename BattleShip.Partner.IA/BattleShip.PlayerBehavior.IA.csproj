@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
@@ -10,6 +10,12 @@
 
   <ItemGroup>
     <ProjectReference Include="..\BattleShip.Partner\BattleShip.PlayerBehavior.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="BattleShip.Engine">
+      <HintPath>..\..\..\Downloads\Dépendances\BattleShip.Engine.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>

@@ -5,11 +5,25 @@ using System.Text;
 
 namespace BattleShip.Engine
 {
+    /// <summary>
+    /// Partie de bataille navale.
+    /// Confronte 2 joueurs.
+    /// </summary>
     public class Game
     {
+        /// <summary>
+        /// Joueurs en confrontation.
+        /// </summary>
         Player player1, player2;
+
+        /// <summary>
+        /// Etat de la partie.
+        /// </summary>
         public GameState State { get; private set; }
 
+        /// <summary>
+        /// Joueur victorieux de cette partie.
+        /// </summary>
         public GameWinner Winner
         {
             get
@@ -23,6 +37,9 @@ namespace BattleShip.Engine
             }
         }
 
+        /// <summary>
+        /// Constructeur par défaut de <see cref="Game"/>.
+        /// </summary>
         public Game()
         {
             State = GameState.New;

@@ -96,23 +96,25 @@
         <member name="P:BattleShip.Simulator.MatchesResult.Player1WinRate">
             <summary>
             Taux de victoire du joueur 1.
-            Exprimé de 0 à 100.
+            Exprimé de 0 à 1.
             </summary>
         </member>
         <member name="P:BattleShip.Simulator.MatchesResult.Player2WinRate">
             <summary>
             Taux de victoire du joueur 2.
-            Exprimé de 0 à 100.
+            Exprimé de 0 à 1.
             </summary>
         </member>
         <member name="P:BattleShip.Simulator.MatchesResult.WinnerWinRate">
             <summary>
-            Taux de victorie du gagnant.
+            Taux de victoire du gagnant.
+            Exprimé de 0 à 1.
             </summary>
         </member>
         <member name="P:BattleShip.Simulator.MatchesResult.LooserWinRate">
             <summary>
             Taux de victoire du perdant.
+            Exprimé de 0 à 1.
             </summary>
         </member>
         <member name="P:BattleShip.Simulator.MatchesResult.TotalMatches">

@@ -52,23 +52,25 @@ namespace BattleShip.Simulator
 
         /// <summary>
         /// Taux de victoire du joueur 1.
-        /// Exprimé de 0 à 100.
+        /// Exprimé de 0 à 1.
         /// </summary>
-        public double Player1WinRate => Player1Victories / (double)TotalMatches * 100d;
+        public double Player1WinRate => Player1Victories / (double)TotalMatches;
 
         /// <summary>
         /// Taux de victoire du joueur 2.
-        /// Exprimé de 0 à 100.
+        /// Exprimé de 0 à 1.
         /// </summary>
-        public double Player2WinRate => Player2Victories / (double)TotalMatches * 100d;
+        public double Player2WinRate => Player2Victories / (double)TotalMatches;
 
         /// <summary>
-        /// Taux de victorie du gagnant.
+        /// Taux de victoire du gagnant.
+        /// Exprimé de 0 à 1.
         /// </summary>
         public double WinnerWinRate => Math.Max(Player1WinRate, Player2WinRate);
 
         /// <summary>
         /// Taux de victoire du perdant.
+        /// Exprimé de 0 à 1.
         /// </summary>
         public double LooserWinRate => Math.Min(Player1WinRate, Player2WinRate);
 

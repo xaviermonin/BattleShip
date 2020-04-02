@@ -24,9 +24,25 @@
             Etat du tir: Manqué, touché ou coulé.
             </summary>
         </member>
+        <member name="F:BattleShip.PlayerBehavior.FireState.Hit">
+            <summary>
+            Touché.
+            </summary>
+        </member>
+        <member name="F:BattleShip.PlayerBehavior.FireState.Sunk">
+            <summary>
+            Coulé.
+            </summary>
+        </member>
+        <member name="F:BattleShip.PlayerBehavior.FireState.Miss">
+            <summary>
+            Manqué.
+            </summary>
+        </member>
         <member name="T:BattleShip.PlayerBehavior.IFireAuthorization">
             <summary>
             Autorisation de tirer. Permet d'effectuer un tir à des coordonnées du plateau de jeu.
+            Le plateau de jeu est de 10x10, commence à 0x0 et se termine à 9x9.
             </summary>
         </member>
         <member name="M:BattleShip.PlayerBehavior.IFireAuthorization.Fire(System.Drawing.Point)">
@@ -49,11 +65,11 @@
             Les classes de navires doivent être positionnées.
             Le plateau de jeu est de 10x10, commence à 0x0 et se termine à 9x9.
             </summary>
-            <param name="board"></param>
         </member>
         <member name="M:BattleShip.PlayerBehavior.IPlayerBehavior.Fire(BattleShip.PlayerBehavior.IFireAuthorization)">
             <summary>
             Donne l'autorisation de tirer sur le plateau ennemi.
+            Le plateau de jeu est de 10x10, commence à 0x0 et se termine à 9x9.
             </summary>
             <param name="fireAuthorization">Autorisation de tirer. Permet de tirer sur le plateau adverse</param>
         </member>

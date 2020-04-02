@@ -46,6 +46,19 @@
             </summary>
             <param name="shipsPosition"></param>
         </member>
+        <member name="M:BattleShip.Engine.Board.IsOutside(System.Int32,System.Int32)">
+            <summary>
+            Indique si les coordonnées sont en dehors du plateau.
+            </summary>
+            <returns>true si les coordonnées sont en dehors sinon false.</returns>
+        </member>
+        <member name="M:BattleShip.Engine.Board.IsOutside(System.Drawing.Point)">
+            <summary>
+            Indique si les coordonnées sont en dehors du plateau.
+            </summary>
+            <param name="coordonate">Coordonnées</param>
+            <returns>true si les coordonnées sont en dehors sinon false.</returns>
+        </member>
         <member name="M:BattleShip.Engine.Board.Fire(System.Drawing.Point)">
             <summary>
             Tir aux coordonnées indiquées sur ce plateau.
@@ -119,6 +132,37 @@
             <param name="coordonate"></param>
             <returns></returns>
         </member>
+        <member name="T:BattleShip.Engine.Game">
+            <summary>
+            Partie de bataille navale.
+            Confronte 2 joueurs.
+            </summary>
+        </member>
+        <member name="F:BattleShip.Engine.Game.player1">
+            <summary>
+            Joueurs en confrontation.
+            </summary>
+        </member>
+        <member name="F:BattleShip.Engine.Game.player2">
+            <summary>
+            Joueurs en confrontation.
+            </summary>
+        </member>
+        <member name="P:BattleShip.Engine.Game.State">
+            <summary>
+            Etat de la partie.
+            </summary>
+        </member>
+        <member name="P:BattleShip.Engine.Game.Winner">
+            <summary>
+            Joueur victorieux de cette partie.
+            </summary>
+        </member>
+        <member name="M:BattleShip.Engine.Game.#ctor">
+            <summary>
+            Constructeur par défaut de <see cref="T:BattleShip.Engine.Game"/>.
+            </summary>
+        </member>
         <member name="M:BattleShip.Engine.Game.InitializePlayers(BattleShip.PlayerBehavior.IPlayerBehavior,BattleShip.PlayerBehavior.IPlayerBehavior)">
             <summary>
             Initialise les plateaux des joueurs.
@@ -136,6 +180,46 @@
         <member name="T:BattleShip.Engine.GameState">
             <summary>
             Etat du jeu de bataille navale.
+            </summary>
+        </member>
+        <member name="F:BattleShip.Engine.GameState.New">
+            <summary>
+            Nouvelle partie.
+            </summary>
+        </member>
+        <member name="F:BattleShip.Engine.GameState.Initialized">
+            <summary>
+            Partie initialisée. Les navires ont été positionnés.
+            </summary>
+        </member>
+        <member name="F:BattleShip.Engine.GameState.Running">
+            <summary>
+            Partie en cours.
+            </summary>
+        </member>
+        <member name="F:BattleShip.Engine.GameState.End">
+            <summary>
+            Partie terminée.
+            </summary>
+        </member>
+        <member name="T:BattleShip.Engine.GameWinner">
+            <summary>
+            Joueur victorieux.
+            </summary>
+        </member>
+        <member name="F:BattleShip.Engine.GameWinner.None">
+            <summary>
+            Aucun ou non concerné.
+            </summary>
+        </member>
+        <member name="F:BattleShip.Engine.GameWinner.Player1">
+            <summary>
+            Joueur 1.
+            </summary>
+        </member>
+        <member name="F:BattleShip.Engine.GameWinner.Player2">
+            <summary>
+            Joueur 2.
             </summary>
         </member>
         <member name="T:BattleShip.Engine.Player">
@@ -217,6 +301,12 @@
             <summary>
             Classe du navire.
             </summary>
+        </member>
+        <member name="M:BattleShip.Engine.Ship.#ctor(BattleShip.PlayerBehavior.Ships.ShipPosition)">
+            <summary>
+            Constructeur d'un navire.
+            </summary>
+            <param name="shipPosition">Position et type du navire.</param>
         </member>
         <member name="M:BattleShip.Engine.Ship.Hit">
             <summary>

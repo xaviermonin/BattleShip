@@ -10,7 +10,7 @@ namespace BattleShip.PlayerBehavior.IA
     /// Tir n'importe où et parfois au même endroit.
     /// Positionne de façon fixe les navires.
     /// </summary>
-    public class FullRandomBehavior : IPlayerBehavior
+    public sealed class FullRandomBehavior : IPlayerBehavior
     {
         private readonly Random random = new Random();
 

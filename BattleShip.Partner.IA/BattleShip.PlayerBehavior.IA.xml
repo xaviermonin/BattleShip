@@ -39,5 +39,21 @@
             </summary>
             <param name="fireAuthorization"></param>
         </member>
+        <member name="T:BattleShip.PlayerBehavior.IA.SmartBehavior">
+            <summary>
+            IA intelligente.
+            </summary>
+        </member>
+        <member name="P:BattleShip.PlayerBehavior.IA.SmartBehavior.ShipPositions">
+            <summary>
+            Donne des positions fixe aux navires sur le plateau.
+            </summary>
+        </member>
+        <member name="M:BattleShip.PlayerBehavior.IA.SmartBehavior.Fire(BattleShip.PlayerBehavior.IFireAuthorization)">
+            <summary>
+            Tire sur le plateau adverse.
+            </summary>
+            <param name="fireAuthorization"></param>
+        </member>
     </members>
 </doc>

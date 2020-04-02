@@ -57,6 +57,10 @@ namespace BattleShip.Engine
         /// </summary>
         public ClassOfShip? Class { get; }
 
+        /// <summary>
+        /// Constructeur d'un navire.
+        /// </summary>
+        /// <param name="shipPosition">Position et type du navire.</param>
         public Ship(ShipPosition shipPosition)
         {
             Orientation = shipPosition.Orientation;
