@@ -70,12 +70,6 @@ namespace BattleShip.Engine
                 if (shipsPosition.Any(s => s.Class == shipPos.Class && !s.Equals(shipPos)))
                     throw new InvalidBoardException("Une seule classe de navire par plateau");
 
-                if (shipPos.Coordonate.X < 0 || shipPos.Coordonate.Y < 0 ||
-                    shipPos.Coordonate.X > BoardSide - 1 || shipPos.Coordonate.Y > BoardSide - 1)
-                {
-                    throw new InvalidBoardException($"Le navire n'est pas positionné sur le plateau ({BoardSide}x{BoardSide})");
-                }
-
                 Size sizeIncrement = shipPos.Orientation == Orientation.Horizontal ? new Size(1, 0) : new Size(0, 1);
 
                 Ship ship = new Ship(shipPos);
@@ -83,6 +77,9 @@ namespace BattleShip.Engine
                 // Positionne les cases du navire sur le plateau.
                 for (Point cellPos = ship.BottomRight; cellPos.X <= ship.TopLeft.X && cellPos.Y <= ship.TopLeft.Y; cellPos += sizeIncrement)
                 {
+                    if (IsOutside(cellPos))
+                        throw new InvalidBoardException($"Le navire n'est pas positionné sur le plateau ({BoardSide}x{BoardSide})");
+
                     var cell = Cells[cellPos.X, cellPos.Y];
 
                     if (cell.Ship != null)
@@ -93,6 +90,25 @@ namespace BattleShip.Engine
 
                 ships.Add(ship);
             }
+        }
+
+        /// <summary>
+        /// Indique si les coordonnées sont en dehors du plateau.
+        /// </summary>
+        /// <returns>true si les coordonnées sont en dehors sinon false.</returns>
+        public bool IsOutside(int x, int y)
+        {
+            return (x < 0 || y < 0 || x > BoardSide - 1 || y > BoardSide - 1);
+        }
+
+        /// <summary>
+        /// Indique si les coordonnées sont en dehors du plateau.
+        /// </summary>
+        /// <param name="coordonate">Coordonnées</param>
+        /// <returns>true si les coordonnées sont en dehors sinon false.</returns>
+        public bool IsOutside(Point coordonate)
+        {
+            return IsOutside(coordonate.X, coordonate.Y);
         }
 
         /// <summary>
