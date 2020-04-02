@@ -37,6 +37,8 @@ namespace BattleShip.Engine
             if (fire)
                 throw new InvalidOperationException("Vous ne pouvez tirer qu'une seule fois par autorisation de tir !");
 
+            fire = true;
+
             return Board.Fire(coordonate);
         }
     }
