@@ -136,7 +136,7 @@ namespace BattleShip.Engine
                 if (hitShip.State == ShipState.Sunk)
                     return new FireResult() { Ship = hitShip.Class, State = FireState.Sunk };
                 else
-                    return new FireResult() { State = FireState.Hit };
+                    return new FireResult() { Ship = hitShip.Class, State = FireState.Hit };
             }
         }
     }

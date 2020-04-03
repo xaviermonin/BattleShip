@@ -50,12 +50,12 @@
         </member>
         <member name="F:BattleShip.Simulator.MatchesResult._behavior1">
             <summary>
-            Comportements.
+            Comportement du joueur 1.
             </summary>
         </member>
         <member name="F:BattleShip.Simulator.MatchesResult._behavior2">
             <summary>
-            Comportements.
+            Comportement du joueur 2.
             </summary>
         </member>
         <member name="P:BattleShip.Simulator.MatchesResult.GameWinner">

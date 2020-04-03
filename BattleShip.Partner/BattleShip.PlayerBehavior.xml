@@ -11,7 +11,8 @@
         </member>
         <member name="P:BattleShip.PlayerBehavior.FireResult.Ship">
             <summary>
-            Navire coulé. Renseigné uniquement lorsque le navire est coulé sinon nul.
+            Navire touché ou coulé.
+            Renseigné uniquement lorsque le navire est touché ou coulé.
             </summary>
         </member>
         <member name="P:BattleShip.PlayerBehavior.FireResult.State">
@@ -88,12 +89,12 @@
             Croiseur. Navire de 3 cases.
             </summary>
         </member>
-        <member name="F:BattleShip.PlayerBehavior.Ships.ClassOfShip.BattleShip1">
+        <member name="F:BattleShip.PlayerBehavior.Ships.ClassOfShip.Submarine">
             <summary>
-            Cuirassé. Navire de 4 cases.
+            Sous-marin. Navire de 3 cases.
             </summary>
         </member>
-        <member name="F:BattleShip.PlayerBehavior.Ships.ClassOfShip.BattleShip2">
+        <member name="F:BattleShip.PlayerBehavior.Ships.ClassOfShip.BattleShip">
             <summary>
             Cuirassé. Navire de 4 cases.
             </summary>

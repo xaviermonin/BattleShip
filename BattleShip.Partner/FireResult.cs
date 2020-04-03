@@ -8,7 +8,8 @@ namespace BattleShip.PlayerBehavior
     public class FireResult
     {
         /// <summary>
-        /// Navire coulé. Renseigné uniquement lorsque le navire est coulé sinon nul.
+        /// Navire touché ou coulé.
+        /// Renseigné uniquement lorsque le navire est touché ou coulé.
         /// </summary>
         public ClassOfShip? Ship { get; set; }
 

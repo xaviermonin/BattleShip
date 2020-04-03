@@ -14,13 +14,13 @@
         /// </summary>
         Cruiser,
         /// <summary>
-        /// Cuirassé. Navire de 4 cases.
+        /// Sous-marin. Navire de 3 cases.
         /// </summary>
-        BattleShip1,
+        Submarine,
         /// <summary>
         /// Cuirassé. Navire de 4 cases.
         /// </summary>
-        BattleShip2,
+        BattleShip,
         /// <summary>
         /// Porte-avion. Navire de 5 cases.
         /// </summary>

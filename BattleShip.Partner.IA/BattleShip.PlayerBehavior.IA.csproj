@@ -12,10 +12,4 @@
     <ProjectReference Include="..\BattleShip.Partner\BattleShip.PlayerBehavior.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Reference Include="BattleShip.Engine">
-      <HintPath>..\..\..\Downloads\Dépendances\BattleShip.Engine.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-
 </Project>

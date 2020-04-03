@@ -20,11 +20,11 @@ namespace BattleShip.PlayerBehavior.IA
         /// </summary>
         public IEnumerable<ShipPosition> ShipPositions => new List<ShipPosition>()
         {
-            new ShipPosition(ClassOfShip.BattleShip1, new Point(0, 0), Orientation.Horizontal),
-            new ShipPosition(ClassOfShip.BattleShip2, new Point(0, 1), Orientation.Horizontal),
-            new ShipPosition(ClassOfShip.Carrier,     new Point(0, 2), Orientation.Horizontal),
-            new ShipPosition(ClassOfShip.Cruiser,     new Point(0, 3), Orientation.Horizontal),
-            new ShipPosition(ClassOfShip.Destroyer,   new Point(0, 4), Orientation.Horizontal),
+            new ShipPosition(ClassOfShip.Submarine,     new Point(0, 0), Orientation.Horizontal),
+            new ShipPosition(ClassOfShip.BattleShip,    new Point(0, 1), Orientation.Horizontal),
+            new ShipPosition(ClassOfShip.Carrier,       new Point(0, 2), Orientation.Horizontal),
+            new ShipPosition(ClassOfShip.Cruiser,       new Point(0, 3), Orientation.Horizontal),
+            new ShipPosition(ClassOfShip.Destroyer,     new Point(0, 4), Orientation.Horizontal),
         };
 
         /// <summary>

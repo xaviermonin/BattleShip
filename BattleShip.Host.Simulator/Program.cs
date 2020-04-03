@@ -14,7 +14,7 @@ namespace BattleShip.Host.Simulator
         /// <summary>
         /// Comportement du joueur 2.
         /// </summary>
-        static readonly Type behaviorType2 = typeof(SmartBehavior);
+        static readonly Type behaviorType2 = typeof(PartialRandomBehavior);
 
         static void Main()
         {
