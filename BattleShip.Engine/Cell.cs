@@ -1,4 +1,5 @@
 ﻿using BattleShip.PlayerBehavior;
+using System;
 
 namespace BattleShip.Engine
 {
@@ -23,7 +24,7 @@ namespace BattleShip.Engine
         public Ship Ship { get; set; }
 
         /// <summary>
-        /// 
+        /// Indique si cette cellule a subit un tir.
         /// </summary>
         public bool Hit { get; set; }
 
@@ -54,6 +55,27 @@ namespace BattleShip.Engine
                 return $"{X}x{Y}";
             else
                 return $"{X}x{Y}: {Ship}";
+        }
+
+        /// <summary>
+        /// Tire sur une case
+        /// </summary>
+        /// <returns></returns>
+        internal FireResult Fire()
+        {
+            Hit = true;
+
+            if (IsEmpty)
+                return new FireResult() { State = FireState.Miss };
+            else
+            {
+                Ship.Hit();
+
+                if (Ship.State == ShipState.Sunk)
+                    return new FireResult() { Ship = Ship.Class, State = FireState.Sunk };
+                else
+                    return new FireResult() { Ship = Ship.Class, State = FireState.Hit };
+            }
         }
     }
 }

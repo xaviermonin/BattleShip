@@ -95,6 +95,8 @@ namespace BattleShip.Engine
         /// <summary>
         /// Indique si les coordonnées sont en dehors du plateau.
         /// </summary>
+        /// <param name="x">Coordonnée X</param>
+        /// <param name="y">Coordonnée Y</param>
         /// <returns>true si les coordonnées sont en dehors sinon false.</returns>
         public bool IsOutside(int x, int y)
         {
@@ -112,7 +114,7 @@ namespace BattleShip.Engine
         }
 
         /// <summary>
-        /// Tir aux coordonnées indiquées sur ce plateau.
+        /// Tire aux coordonnées indiquées sur ce plateau.
         /// </summary>
         /// <param name="fireCoordonate"></param>
         /// <returns></returns>
@@ -125,19 +127,7 @@ namespace BattleShip.Engine
             }
 
             var cell = Cells[fireCoordonate.X, fireCoordonate.Y];
-
-            if (cell.IsEmpty)
-                return new FireResult() { State = FireState.Miss };
-            else
-            {
-                var hitShip = cell.Ship;
-                hitShip.Hit();
-
-                if (hitShip.State == ShipState.Sunk)
-                    return new FireResult() { Ship = hitShip.Class, State = FireState.Sunk };
-                else
-                    return new FireResult() { Ship = hitShip.Class, State = FireState.Hit };
-            }
+            return cell.Fire();
         }
     }
 }

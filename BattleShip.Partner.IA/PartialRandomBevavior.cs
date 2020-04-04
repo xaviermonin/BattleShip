@@ -16,7 +16,7 @@ namespace BattleShip.PlayerBehavior.IA
         private readonly List<Point> previousShotsCoordonates = new List<Point>();
 
         /// <summary>
-        /// Donne des positions fixe aux navires sur le plateau.
+        /// Donne des positions fixes aux navires sur le plateau.
         /// </summary>
         public IEnumerable<ShipPosition> ShipPositions => new List<ShipPosition>()
         {
