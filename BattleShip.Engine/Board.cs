@@ -68,22 +68,22 @@ namespace BattleShip.Engine
             foreach (var shipPos in shipsPosition)
             {
                 if (shipsPosition.Any(s => s.Class == shipPos.Class && !s.Equals(shipPos)))
-                    throw new InvalidBoardException("Une seule classe de navire par plateau");
+                    throw new InvalidBoardException("Une seule classe de navire par plateau.");
 
                 Size sizeIncrement = shipPos.Orientation == Orientation.Horizontal ? new Size(1, 0) : new Size(0, 1);
 
                 Ship ship = new Ship(shipPos);
 
                 // Positionne les cases du navire sur le plateau.
-                for (Point cellPos = ship.BottomRight; cellPos.X <= ship.TopLeft.X && cellPos.Y <= ship.TopLeft.Y; cellPos += sizeIncrement)
+                for (Point cellPos = ship.TopLeft; cellPos.X <= ship.BottomRight.X && cellPos.Y <= ship.BottomRight.Y; cellPos += sizeIncrement)
                 {
                     if (IsOutside(cellPos))
-                        throw new InvalidBoardException($"Le navire n'est pas positionné sur le plateau ({BoardSide}x{BoardSide})");
-
+                        throw new InvalidBoardException($"Le navire [{ship}] n'est pas positionné sur le plateau ({BoardSide}x{BoardSide})");
+                     
                     var cell = Cells[cellPos.X, cellPos.Y];
 
                     if (cell.Ship != null)
-                        throw new InvalidBoardException("Deux navires ne peuvent pas être positionnés au même endroit");
+                        throw new InvalidBoardException("Deux navires ne peuvent pas être positionnés au même endroit.");
 
                     cell.Ship = ship;
                 }
@@ -120,14 +120,42 @@ namespace BattleShip.Engine
         /// <returns></returns>
         internal FireResult Fire(Point fireCoordonate)
         {
-            if (fireCoordonate.X < 0 || fireCoordonate.Y < 0 ||
-                fireCoordonate.X > BoardSide - 1 || fireCoordonate.Y > BoardSide - 1)
-            {
-                throw new InvalidBoardException($"Le navire n'est pas positionné dans le plateau ({BoardSide}x{BoardSide})");
-            }
+            if (IsOutside(fireCoordonate))
+                throw new InvalidBoardException($"Le tir est en dehors du plateau ({BoardSide}x{BoardSide})");
 
             var cell = Cells[fireCoordonate.X, fireCoordonate.Y];
             return cell.Fire();
+        }
+
+        /// <summary>
+        /// Affiche la grille du plateau au format ASCII.
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
+        {
+            // Entête
+            string boardTable = "-";
+            for (int i = 0; i < BoardSide; ++i)
+                boardTable += "--";
+            boardTable += Environment.NewLine;
+
+            // Contenu des cases
+            for (int y = 0; y < BoardSide; ++y)
+            {
+                boardTable += "|";
+
+                for (int x = 0; x < BoardSide; ++x)
+                    boardTable += $"{Cells[x, y].Ship?.ClassOfShipInfo.Symbol ?? ' '}|";
+
+                boardTable += Environment.NewLine;
+            }
+
+            // Pied
+            boardTable += "-";
+            for (int i = 0; i < BoardSide; ++i)
+                boardTable += "--";
+
+            return boardTable;
         }
     }
 }

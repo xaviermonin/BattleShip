@@ -50,6 +50,8 @@
             <summary>
             Indique si les coordonnées sont en dehors du plateau.
             </summary>
+            <param name="x">Coordonnée X</param>
+            <param name="y">Coordonnée Y</param>
             <returns>true si les coordonnées sont en dehors sinon false.</returns>
         </member>
         <member name="M:BattleShip.Engine.Board.IsOutside(System.Drawing.Point)">
@@ -61,7 +63,7 @@
         </member>
         <member name="M:BattleShip.Engine.Board.Fire(System.Drawing.Point)">
             <summary>
-            Tir aux coordonnées indiquées sur ce plateau.
+            Tire aux coordonnées indiquées sur ce plateau.
             </summary>
             <param name="fireCoordonate"></param>
             <returns></returns>
@@ -88,7 +90,7 @@
         </member>
         <member name="P:BattleShip.Engine.Cell.Hit">
             <summary>
-            
+            Indique si cette cellule a subit un tir.
             </summary>
         </member>
         <member name="P:BattleShip.Engine.Cell.IsEmpty">
@@ -106,6 +108,12 @@
         <member name="M:BattleShip.Engine.Cell.ToString">
             <summary>
             Affiche les coordonnés de la cellule.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BattleShip.Engine.Cell.Fire">
+            <summary>
+            Tire sur une case
             </summary>
             <returns></returns>
         </member>

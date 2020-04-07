@@ -10,13 +10,11 @@ namespace BattleShip.Engine
     public class Ship
     {
         /// <summary>
-        /// Position de la proue.
         /// Position bas / droite.
         /// </summary>
         public Point TopLeft { get; }
         
         /// <summary>
-        /// Position de la poupe.
         /// Position haut / gauche.
         /// </summary>
         public Point BottomRight { get; }
@@ -53,9 +51,14 @@ namespace BattleShip.Engine
         }
 
         /// <summary>
+        /// Information sur la classe du navire.
+        /// </summary>
+        public ClassOfShipInfo ClassOfShipInfo { get; }
+
+        /// <summary>
         /// Classe du navire.
         /// </summary>
-        public ClassOfShip? Class { get; }
+        public ClassOfShip Class { get; }
 
         /// <summary>
         /// Constructeur d'un navire.
@@ -64,9 +67,10 @@ namespace BattleShip.Engine
         public Ship(ShipPosition shipPosition)
         {
             Orientation = shipPosition.Orientation;
+            ClassOfShipInfo = shipPosition.ClassOfShipInfo; //TODO: Revoir la pertinence de cette classe et de son usage.
             Lenght = shipPosition.ClassOfShipInfo.Lenght;
-            BottomRight = shipPosition.Coordonate;
-            TopLeft = shipPosition.Coordonate + shipPosition.Size;
+            TopLeft = shipPosition.Coordonate;
+            BottomRight = shipPosition.Coordonate + shipPosition.Size - new Size(1, 1);
             Class = shipPosition.Class;
             HealthPoint = Lenght;
         }
@@ -77,6 +81,11 @@ namespace BattleShip.Engine
         internal void Hit()
         {
             --HealthPoint;
+        }
+
+        public override string ToString()
+        {
+            return $"{Class}";
         }
     }
 }

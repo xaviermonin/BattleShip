@@ -15,6 +15,11 @@ namespace BattleShip.PlayerBehavior.Ships
         public string Name { get; private set; }
 
         /// <summary>
+        /// Symbole du navire.
+        /// </summary>
+        public char Symbol { get; private set; }
+
+        /// <summary>
         /// Taille du navire.
         /// </summary>
         public int Lenght { get; private set; }
@@ -33,11 +38,11 @@ namespace BattleShip.PlayerBehavior.Ships
         {
             switch (classOfShip)
             {
-                case ClassOfShip.Destroyer:     return new ClassOfShipInfo() { Name = "Destroyer",  Lenght = 2, ClassOfShip = classOfShip };
-                case ClassOfShip.Cruiser:       return new ClassOfShipInfo() { Name = "Cruiser",    Lenght = 3, ClassOfShip = classOfShip };
-                case ClassOfShip.Submarine:     return new ClassOfShipInfo() { Name = "Submarine",  Lenght = 3, ClassOfShip = classOfShip };
-                case ClassOfShip.BattleShip:    return new ClassOfShipInfo() { Name = "BattleShip", Lenght = 4, ClassOfShip = classOfShip };
-                case ClassOfShip.Carrier:       return new ClassOfShipInfo() { Name = "Carrier",    Lenght = 5, ClassOfShip = classOfShip };
+                case ClassOfShip.Destroyer:     return new ClassOfShipInfo() { Name = "Destroyer",  Symbol = 'D', Lenght = 2, ClassOfShip = classOfShip };
+                case ClassOfShip.Cruiser:       return new ClassOfShipInfo() { Name = "Cruiser",    Symbol = 'c', Lenght = 3, ClassOfShip = classOfShip };
+                case ClassOfShip.Submarine:     return new ClassOfShipInfo() { Name = "Submarine",  Symbol = 'S', Lenght = 3, ClassOfShip = classOfShip };
+                case ClassOfShip.BattleShip:    return new ClassOfShipInfo() { Name = "BattleShip", Symbol = 'B', Lenght = 4, ClassOfShip = classOfShip };
+                case ClassOfShip.Carrier:       return new ClassOfShipInfo() { Name = "Carrier",    Symbol = 'C', Lenght = 5, ClassOfShip = classOfShip };
                 default:
                     throw new InvalidOperationException("Type de navire inconnue");
             }

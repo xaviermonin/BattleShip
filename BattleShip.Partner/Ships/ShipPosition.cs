@@ -9,7 +9,7 @@ namespace BattleShip.PlayerBehavior.Ships
     /// Position complète du navire sur le plateau 10x10.
     /// Le positionnement sur le plateau commence à 0x0 et se termine à 9x9.
     /// </summary>
-    public class ShipPosition : IEquatable<ShipPosition>
+    public sealed class ShipPosition : IEquatable<ShipPosition>
     {
         /// <summary>
         /// Classe du navire.
@@ -40,9 +40,9 @@ namespace BattleShip.PlayerBehavior.Ships
             get
             {
                 if (Orientation == Orientation.Horizontal)
-                    return new Size(ClassOfShipInfo.Lenght, 0);
+                    return new Size(ClassOfShipInfo.Lenght, 1);
                 else
-                    return new Size(0, ClassOfShipInfo.Lenght);
+                    return new Size(1, ClassOfShipInfo.Lenght);
             }
         }
 

@@ -13,7 +13,7 @@
         </member>
         <member name="P:BattleShip.PlayerBehavior.IA.FullRandomBehavior.ShipPositions">
             <summary>
-            Donne des positions fixe aux navires sur le plateau.
+            Donne des positions fixes aux navires sur le plateau.
             </summary>
         </member>
         <member name="M:BattleShip.PlayerBehavior.IA.FullRandomBehavior.Fire(BattleShip.PlayerBehavior.IFireAuthorization)">
@@ -30,7 +30,7 @@
         </member>
         <member name="P:BattleShip.PlayerBehavior.IA.PartialRandomBehavior.ShipPositions">
             <summary>
-            Donne des positions fixe aux navires sur le plateau.
+            Donne des positions fixes aux navires sur le plateau.
             </summary>
         </member>
         <member name="M:BattleShip.PlayerBehavior.IA.PartialRandomBehavior.Fire(BattleShip.PlayerBehavior.IFireAuthorization)">
@@ -46,7 +46,7 @@
         </member>
         <member name="P:BattleShip.PlayerBehavior.IA.SmartBehavior.ShipPositions">
             <summary>
-            Donne des positions fixe aux navires sur le plateau.
+            Donne des positions fixes aux navires sur le plateau.
             </summary>
         </member>
         <member name="M:BattleShip.PlayerBehavior.IA.SmartBehavior.Fire(BattleShip.PlayerBehavior.IFireAuthorization)">

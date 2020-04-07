@@ -1,7 +1,6 @@
 ﻿using BattleShip.PlayerBehavior.Ships;
 using System;
 using System.Collections.Generic;
-using System.Drawing;
 
 namespace BattleShip.PlayerBehavior.IA
 {
@@ -22,13 +21,13 @@ namespace BattleShip.PlayerBehavior.IA
         /// <summary>
         /// Donne des positions fixes aux navires sur le plateau.
         /// </summary>
-        public IEnumerable<ShipPosition> ShipPositions => new List<ShipPosition>()
+        public IEnumerable<ShipPosition> ShipPositions => new ShipPosition[]
         {
-            new ShipPosition(ClassOfShip.Submarine,     new Point(0, 0), Orientation.Horizontal),
-            new ShipPosition(ClassOfShip.BattleShip,    new Point(0, 1), Orientation.Horizontal),
-            new ShipPosition(ClassOfShip.Carrier,       new Point(0, 2), Orientation.Horizontal),
-            new ShipPosition(ClassOfShip.Cruiser,       new Point(0, 3), Orientation.Horizontal),
-            new ShipPosition(ClassOfShip.Destroyer,     new Point(0, 4), Orientation.Horizontal),
+            new ShipPosition(ClassOfShip.Destroyer,     new System.Drawing.Point(1,1), Orientation.Vertical),
+            new ShipPosition(ClassOfShip.Cruiser,       new System.Drawing.Point(4,1), Orientation.Horizontal),
+            new ShipPosition(ClassOfShip.Submarine,     new System.Drawing.Point(1,7), Orientation.Vertical),
+            new ShipPosition(ClassOfShip.BattleShip,    new System.Drawing.Point(3,4), Orientation.Vertical),
+            new ShipPosition(ClassOfShip.Carrier,       new System.Drawing.Point(5,6), Orientation.Horizontal),
         };
 
         /// <summary>
