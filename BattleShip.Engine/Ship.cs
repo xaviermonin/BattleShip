@@ -70,7 +70,7 @@ namespace BattleShip.Engine
             ClassOfShipInfo = shipPosition.ClassOfShipInfo; //TODO: Revoir la pertinence de cette classe et de son usage.
             Lenght = shipPosition.ClassOfShipInfo.Lenght;
             TopLeft = shipPosition.Coordonate;
-            BottomRight = shipPosition.Coordonate + shipPosition.Size - new Size(1, 1);
+            BottomRight = shipPosition.Coordonate + shipPosition.Size - new Size(1, 1); // -1 en X et Y car on TopLeft "consomme" une case
             Class = shipPosition.Class;
             HealthPoint = Lenght;
         }

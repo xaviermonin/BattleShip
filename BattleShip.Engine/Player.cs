@@ -10,13 +10,13 @@ namespace BattleShip.Engine
     /// Joueur de la bataille navale.
     /// Décrit son comportement et son plateau.
     /// </summary>
-    class Player
+    public class Player
     {
         /// <summary>
         /// Construit un joueur à partir son comportement.
         /// </summary>
         /// <param name="playerBehavior"></param>
-        public Player(IPlayerBehavior playerBehavior)
+        internal Player(IPlayerBehavior playerBehavior)
         {
             Board = new Board();
             Behavior = playerBehavior;

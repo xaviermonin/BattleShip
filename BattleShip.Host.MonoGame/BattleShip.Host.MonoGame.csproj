@@ -16,4 +16,10 @@
     <PackageReference Include="MonoGame.Framework.DesktopGL.Core" Version="3.8.0.2" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\BattleShip.Engine\BattleShip.Engine.csproj" />
+    <ProjectReference Include="..\BattleShip.Partner.IA\BattleShip.PlayerBehavior.IA.csproj" />
+    <ProjectReference Include="..\BattleShip.Partner\BattleShip.PlayerBehavior.csproj" />
+  </ItemGroup>
+
 </Project>

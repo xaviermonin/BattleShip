@@ -1,4 +1,5 @@
-﻿using BattleShip.PlayerBehavior;
+﻿using BattleShip.Engine.Exception;
+using BattleShip.PlayerBehavior;
 using System;
 
 namespace BattleShip.Engine
@@ -9,24 +10,24 @@ namespace BattleShip.Engine
     public class Cell
     {
         /// <summary>
-        /// Coordonnée X de la cellule.
+        /// Coordonnée X de la case.
         /// </summary>
-        public uint X { get; }
+        public int X { get; }
 
         /// <summary>
-        /// Coordonnée Y de la cellule.
+        /// Coordonnée Y de la case.
         /// </summary>
-        public uint Y { get; }
+        public int Y { get; }
 
         /// <summary>
         /// Navire ayant un point sur cette case.
         /// </summary>
-        public Ship Ship { get; set; }
+        public Ship Ship { get; internal set; }
 
         /// <summary>
-        /// Indique si cette cellule a subit un tir.
+        /// Indique si cette case a subit un tir.
         /// </summary>
-        public bool Hit { get; set; }
+        public bool Hit { get; internal set; }
 
         /// <summary>
         /// Indique si la case est vide (sans navire).
@@ -34,11 +35,11 @@ namespace BattleShip.Engine
         public bool IsEmpty => Ship == null;
 
         /// <summary>
-        /// Construit une cellule.
+        /// Construit une case.
         /// </summary>
         /// <param name="x">Coordonnée X</param>
         /// <param name="y">Coordonnée Y</param>
-        public Cell(uint x, uint y)
+        internal Cell(int x, int y)
         {
             X = x;
             Y = y;
@@ -51,10 +52,7 @@ namespace BattleShip.Engine
         /// <returns></returns>
         public override string ToString()
         {
-            if (Ship == null)
-                return $"{X}x{Y}";
-            else
-                return $"{X}x{Y}: {Ship}";
+            return $"{X}x{Y}. Hit: {Hit}. Ship: {Ship}";
         }
 
         /// <summary>
@@ -63,6 +61,9 @@ namespace BattleShip.Engine
         /// <returns></returns>
         internal FireResult Fire()
         {
+            if (Hit)
+                throw new InvalidFireException("Cette case a déjà été touchée.");
+
             Hit = true;
 
             if (IsEmpty)

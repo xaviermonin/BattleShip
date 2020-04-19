@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace BattleShip
+namespace BattleShip.Host.MonoGame
 {
     public static class Program
     {

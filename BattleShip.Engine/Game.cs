@@ -12,9 +12,15 @@ namespace BattleShip.Engine
     public class Game
     {
         /// <summary>
-        /// Joueurs en confrontation.
+        /// Joueur 1.
         /// </summary>
-        Player player1, player2;
+        public Player Player1 { get; private set; } 
+
+
+        /// <summary>
+        /// Joueur 2.
+        /// </summary>
+        public Player Player2 { get; private set; }
 
         /// <summary>
         /// Etat de la partie.
@@ -28,9 +34,9 @@ namespace BattleShip.Engine
         {
             get
             {
-                if (player1.State == PlayerState.Lost)
+                if (Player1.State == PlayerState.Lost)
                     return GameWinner.Player2;
-                else if (player2.State == PlayerState.Lost)
+                else if (Player1.State == PlayerState.Lost)
                     return GameWinner.Player1;
 
                 return GameWinner.None;
@@ -59,11 +65,11 @@ namespace BattleShip.Engine
             if (playerBehavior2 == null)
                 throw new ArgumentNullException(nameof(playerBehavior2));
 
-            player1 = new Player(playerBehavior1);
-            player2 = new Player(playerBehavior2);
+            Player1 = new Player(playerBehavior1);
+            Player2 = new Player(playerBehavior2);
 
-            player1.PlaceShip();
-            player2.PlaceShip();
+            Player1.PlaceShip();
+            Player2.PlaceShip();
 
             State = GameState.Initialized;
         }
@@ -80,15 +86,15 @@ namespace BattleShip.Engine
             if (State != GameState.Running)
                 throw new InvalidOperationException("Etat du jeu invalide.");
             
-            player1.Fire(player2);
-            if (player1.State == PlayerState.Lost)
+            Player1.Fire(Player2);
+            if (Player1.State == PlayerState.Lost)
             {
                 State = GameState.End;
                 return;
             }
 
-            player2.Fire(player1);
-            if (player2.State == PlayerState.Lost)
+            Player2.Fire(Player1);
+            if (Player2.State == PlayerState.Lost)
             {
                 State = GameState.End;
                 return;

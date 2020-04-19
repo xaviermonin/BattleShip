@@ -7,10 +7,11 @@ using System.Linq;
 namespace BattleShip.PlayerBehavior.IA
 {
     /// <summary>
-    /// IA qui tir au hasard mais pas jamais au même endroit.
-    /// Positionne de façon fixe les navires et tir au hasard.
+    /// IA qui pense avoir la chance de son coté.
+    /// Tir au hasard.
+    /// Positionne de façon fixe les navires.
     /// </summary>
-    public sealed class PartialRandomBehavior : IPlayerBehavior
+    public sealed class RandomBehavior : IPlayerBehavior
     {
         private readonly Random random = new Random();
         private readonly List<Point> previousShotsCoordonates = new List<Point>();
@@ -20,11 +21,11 @@ namespace BattleShip.PlayerBehavior.IA
         /// </summary>
         public IEnumerable<ShipPosition> ShipPositions => new List<ShipPosition>()
         {
-            new ShipPosition(ClassOfShip.Submarine,     new Point(0, 0), Orientation.Horizontal),
-            new ShipPosition(ClassOfShip.BattleShip,    new Point(0, 1), Orientation.Horizontal),
-            new ShipPosition(ClassOfShip.Carrier,       new Point(0, 2), Orientation.Horizontal),
-            new ShipPosition(ClassOfShip.Cruiser,       new Point(0, 3), Orientation.Horizontal),
-            new ShipPosition(ClassOfShip.Destroyer,     new Point(0, 4), Orientation.Horizontal),
+            new ShipPosition(ClassOfShip.Destroyer,     new System.Drawing.Point(1,1), Orientation.Vertical),
+            new ShipPosition(ClassOfShip.Cruiser,       new System.Drawing.Point(4,1), Orientation.Horizontal),
+            new ShipPosition(ClassOfShip.Submarine,     new System.Drawing.Point(1,7), Orientation.Vertical),
+            new ShipPosition(ClassOfShip.BattleShip,    new System.Drawing.Point(3,4), Orientation.Vertical),
+            new ShipPosition(ClassOfShip.Carrier,       new System.Drawing.Point(5,6), Orientation.Horizontal),
         };
 
         /// <summary>

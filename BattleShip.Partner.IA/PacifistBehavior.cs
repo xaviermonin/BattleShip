@@ -6,14 +6,12 @@ using System.Drawing;
 namespace BattleShip.PlayerBehavior.IA
 {
     /// <summary>
-    /// IA qui pense avoir la chance de son coté.
-    /// Tir n'importe où et parfois au même endroit.
+    /// IA pacisfist. Ne tire jamais et ne peut donc jamais gagner.
+    /// Permet de tester une IA.
     /// Positionne de façon fixe les navires.
     /// </summary>
-    public sealed class FullRandomBehavior : IPlayerBehavior
+    public sealed class PacifistBehavior : IPlayerBehavior
     {
-        private readonly Random random = new Random();
-
         /// <summary>
         /// Donne des positions fixes aux navires sur le plateau.
         /// </summary>
@@ -32,7 +30,7 @@ namespace BattleShip.PlayerBehavior.IA
         /// <param name="fireAuthorization">Autorisation de tir. Permet de tirer sur le plateau ennemi.</param>
         public void Fire(IFireAuthorization fireAuthorization)
         {
-            fireAuthorization.Fire(new Point(random.Next(0, 10), random.Next(0, 10)));
+            // Ne tire pas.
         }
     }
 }

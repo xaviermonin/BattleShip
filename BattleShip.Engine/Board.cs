@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using BattleShip.Engine.Utils;
 
 namespace BattleShip.Engine
 {
@@ -22,7 +23,7 @@ namespace BattleShip.Engine
         /// <summary>
         /// Taille du coté du plateau.
         /// </summary>
-        private const int BoardSide = 10;
+        public const int BoardSide = 10;
 
         /// <summary>
         /// Navires placés.
@@ -32,7 +33,7 @@ namespace BattleShip.Engine
         /// <summary>
         /// Cases du plateau.
         /// </summary>
-        private Cell[,] Cells { get; set; }
+        private readonly Cell[,] _cells;
 
         /// <summary>
         /// Indique si tous les navires sont coulés.
@@ -40,16 +41,35 @@ namespace BattleShip.Engine
         public bool IsAllShipsSunk => Ships.All(s => s.State == ShipState.Sunk);
 
         /// <summary>
+        /// Obtient une case du plateau
+        /// </summary>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        /// <returns></returns>
+        public Cell GetCell(int x, int y)
+        {
+            if (IsOutside(x, y))
+                throw new ArgumentException("Coordonnées en dehors du plateau.");
+
+            return _cells[x, y];
+        }
+
+        /// <summary>
+        /// Cases du plateau.
+        /// </summary>
+        public IEnumerable<Cell> Cells => _cells.ToEnumerable();
+
+        /// <summary>
         /// Construit un plateau de jeu de la bataille navale.
         /// </summary>
         public Board()
         {
-            Cells = new Cell[BoardSide, BoardSide];
+            _cells = new Cell[BoardSide, BoardSide];
 
-            for (uint x = 0; x < BoardSide; ++x)
+            for (int x = 0; x < BoardSide; ++x)
             {
-                for (uint y = 0; y < BoardSide; ++y)
-                    Cells[x, y] = new Cell(x, y);
+                for (int y = 0; y < BoardSide; ++y)
+                    _cells[x, y] = new Cell(x, y);
             }
         }
 
@@ -57,7 +77,7 @@ namespace BattleShip.Engine
         /// Place les navires sur le plateau.
         /// </summary>
         /// <param name="shipsPosition"></param>
-        public void PlaceShip(IEnumerable<ShipPosition> shipsPosition)
+        internal void PlaceShip(IEnumerable<ShipPosition> shipsPosition)
         {
             if (ships.Count > 0)
                 throw new InvalidBoardException("Les navires ont déjà été disposés sur le plateau.");
@@ -80,7 +100,7 @@ namespace BattleShip.Engine
                     if (IsOutside(cellPos))
                         throw new InvalidBoardException($"Le navire [{ship}] n'est pas positionné sur le plateau ({BoardSide}x{BoardSide})");
                      
-                    var cell = Cells[cellPos.X, cellPos.Y];
+                    var cell = _cells[cellPos.X, cellPos.Y];
 
                     if (cell.Ship != null)
                         throw new InvalidBoardException("Deux navires ne peuvent pas être positionnés au même endroit.");
@@ -123,7 +143,7 @@ namespace BattleShip.Engine
             if (IsOutside(fireCoordonate))
                 throw new InvalidBoardException($"Le tir est en dehors du plateau ({BoardSide}x{BoardSide})");
 
-            var cell = Cells[fireCoordonate.X, fireCoordonate.Y];
+            var cell = _cells[fireCoordonate.X, fireCoordonate.Y];
             return cell.Fire();
         }
 
@@ -145,7 +165,7 @@ namespace BattleShip.Engine
                 boardTable += "|";
 
                 for (int x = 0; x < BoardSide; ++x)
-                    boardTable += $"{Cells[x, y].Ship?.ClassOfShipInfo.Symbol ?? ' '}|";
+                    boardTable += $"{_cells[x, y].Ship?.ClassOfShipInfo.Symbol ?? ' '}|";
 
                 boardTable += Environment.NewLine;
             }

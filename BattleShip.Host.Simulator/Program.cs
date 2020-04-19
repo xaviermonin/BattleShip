@@ -9,7 +9,7 @@ namespace BattleShip.Host.Simulator
         /// <summary>
         /// Comportement du joueur 1.
         /// </summary>
-        static readonly Type behaviorType1 = typeof(FullRandomBehavior);
+        static readonly Type behaviorType1 = typeof(RandomBehavior);
 
         /// <summary>
         /// Comportement du joueur 2.
@@ -23,6 +23,9 @@ namespace BattleShip.Host.Simulator
             Console.WriteLine($"{behaviorType1.Name} VS {behaviorType2.Name}. Fight !");
 
             var battleShipSimulator = new BattleShipSimulator(behaviorType1, behaviorType2);
+
+            var winner = battleShipSimulator.RunOneMatch();
+
             var matchResult = battleShipSimulator.RunMultiplesMatches();
 
             Console.WriteLine($"La meilleur IA est : {matchResult.WinnerBehaviorType.Name}.");
