@@ -2,10 +2,6 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using BattleShip.Host.MonoGame.Game;
-using MonoGame.Extended.ViewportAdapters;
-using MonoGame.Extended;
-using System;
 
 namespace BattleShip.Host.MonoGame
 {
@@ -31,6 +27,7 @@ namespace BattleShip.Host.MonoGame
             {
                 PreferredBackBufferWidth = 1600,
                 PreferredBackBufferHeight = 900,
+                IsFullScreen = true,
                 SupportedOrientations = DisplayOrientation.LandscapeRight
             };
 
@@ -40,7 +37,7 @@ namespace BattleShip.Host.MonoGame
             IsMouseVisible = true;
 
             game = new Engine.Game();
-            game.InitializePlayers(new SmartBehavior(), new SmartBehavior());
+            game.InitializePlayers(new SmartBehavior(), new RandomBehavior());
         }
 
         protected override void Initialize()
