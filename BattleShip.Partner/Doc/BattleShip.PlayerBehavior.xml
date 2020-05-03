@@ -114,6 +114,11 @@
             Nom du navire.
             </summary>
         </member>
+        <member name="P:BattleShip.PlayerBehavior.Ships.ClassOfShipInfo.Symbol">
+            <summary>
+            Symbole du navire.
+            </summary>
+        </member>
         <member name="P:BattleShip.PlayerBehavior.Ships.ClassOfShipInfo.Lenght">
             <summary>
             Taille du navire.

@@ -4,36 +4,37 @@
         <name>BattleShip.PlayerBehavior.IA</name>
     </assembly>
     <members>
-        <member name="T:BattleShip.PlayerBehavior.IA.FullRandomBehavior">
+        <member name="T:BattleShip.PlayerBehavior.IA.PacifistBehavior">
             <summary>
-            IA qui pense avoir la chance de son coté.
-            Tir n'importe où et parfois au même endroit.
+            IA pacisfist. Ne tire jamais et ne peut donc jamais gagner.
+            Permet de tester une IA.
             Positionne de façon fixe les navires.
             </summary>
         </member>
-        <member name="P:BattleShip.PlayerBehavior.IA.FullRandomBehavior.ShipPositions">
+        <member name="P:BattleShip.PlayerBehavior.IA.PacifistBehavior.ShipPositions">
             <summary>
             Donne des positions fixes aux navires sur le plateau.
             </summary>
         </member>
-        <member name="M:BattleShip.PlayerBehavior.IA.FullRandomBehavior.Fire(BattleShip.PlayerBehavior.IFireAuthorization)">
+        <member name="M:BattleShip.PlayerBehavior.IA.PacifistBehavior.Fire(BattleShip.PlayerBehavior.IFireAuthorization)">
             <summary>
             Tir au hasard sur le plateau adverse.
             </summary>
             <param name="fireAuthorization">Autorisation de tir. Permet de tirer sur le plateau ennemi.</param>
         </member>
-        <member name="T:BattleShip.PlayerBehavior.IA.PartialRandomBehavior">
+        <member name="T:BattleShip.PlayerBehavior.IA.RandomBehavior">
             <summary>
-            IA qui tir au hasard mais pas jamais au même endroit.
-            Positionne de façon fixe les navires et tir au hasard.
+            IA qui pense avoir la chance de son coté.
+            Tir au hasard.
+            Positionne de façon fixe les navires.
             </summary>
         </member>
-        <member name="P:BattleShip.PlayerBehavior.IA.PartialRandomBehavior.ShipPositions">
+        <member name="P:BattleShip.PlayerBehavior.IA.RandomBehavior.ShipPositions">
             <summary>
             Donne des positions fixes aux navires sur le plateau.
             </summary>
         </member>
-        <member name="M:BattleShip.PlayerBehavior.IA.PartialRandomBehavior.Fire(BattleShip.PlayerBehavior.IFireAuthorization)">
+        <member name="M:BattleShip.PlayerBehavior.IA.RandomBehavior.Fire(BattleShip.PlayerBehavior.IFireAuthorization)">
             <summary>
             Tir au hasard sur le plateau adverse.
             </summary>

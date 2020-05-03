@@ -4,8 +4,8 @@
     <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <DocumentationFile>C:\Users\xavie\Documents\Projets\BattleShip\BattleShip.Partner\BattleShip.PlayerBehavior.xml</DocumentationFile>
+  <PropertyGroup>
+    <DocumentationFile>Doc/BattleShip.PlayerBehavior.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
@@ -13,6 +13,10 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Doc\" />
   </ItemGroup>
 
 </Project>

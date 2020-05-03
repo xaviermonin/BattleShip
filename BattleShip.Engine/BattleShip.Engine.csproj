@@ -4,8 +4,8 @@
     <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <DocumentationFile>C:\Users\xavie\Documents\Projets\BattleShip\BattleShip.Engine\BattleShip.Engine.xml</DocumentationFile>
+  <PropertyGroup>
+    <DocumentationFile>Doc\BattleShip.Engine.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
@@ -14,6 +14,10 @@
 
   <ItemGroup>
     <ProjectReference Include="..\BattleShip.Partner\BattleShip.PlayerBehavior.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Doc\" />
   </ItemGroup>
 
 </Project>

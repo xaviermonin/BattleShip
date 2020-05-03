@@ -25,7 +25,7 @@
             Navires placés.
             </summary>
         </member>
-        <member name="P:BattleShip.Engine.Board.Cells">
+        <member name="F:BattleShip.Engine.Board._cells">
             <summary>
             Cases du plateau.
             </summary>
@@ -33,6 +33,19 @@
         <member name="P:BattleShip.Engine.Board.IsAllShipsSunk">
             <summary>
             Indique si tous les navires sont coulés.
+            </summary>
+        </member>
+        <member name="M:BattleShip.Engine.Board.GetCell(System.Int32,System.Int32)">
+            <summary>
+            Obtient une case du plateau
+            </summary>
+            <param name="x"></param>
+            <param name="y"></param>
+            <returns></returns>
+        </member>
+        <member name="P:BattleShip.Engine.Board.Cells">
+            <summary>
+            Cases du plateau.
             </summary>
         </member>
         <member name="M:BattleShip.Engine.Board.#ctor">
@@ -68,6 +81,12 @@
             <param name="fireCoordonate"></param>
             <returns></returns>
         </member>
+        <member name="M:BattleShip.Engine.Board.ToString">
+            <summary>
+            Affiche la grille du plateau au format ASCII.
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:BattleShip.Engine.Cell">
             <summary>
             Case d'un plateau.
@@ -75,12 +94,12 @@
         </member>
         <member name="P:BattleShip.Engine.Cell.X">
             <summary>
-            Coordonnée X de la cellule.
+            Coordonnée X de la case.
             </summary>
         </member>
         <member name="P:BattleShip.Engine.Cell.Y">
             <summary>
-            Coordonnée Y de la cellule.
+            Coordonnée Y de la case.
             </summary>
         </member>
         <member name="P:BattleShip.Engine.Cell.Ship">
@@ -90,7 +109,7 @@
         </member>
         <member name="P:BattleShip.Engine.Cell.Hit">
             <summary>
-            Indique si cette cellule a subit un tir.
+            Indique si cette case a subit un tir.
             </summary>
         </member>
         <member name="P:BattleShip.Engine.Cell.IsEmpty">
@@ -98,9 +117,9 @@
             Indique si la case est vide (sans navire).
             </summary>
         </member>
-        <member name="M:BattleShip.Engine.Cell.#ctor(System.UInt32,System.UInt32)">
+        <member name="M:BattleShip.Engine.Cell.#ctor(System.Int32,System.Int32)">
             <summary>
-            Construit une cellule.
+            Construit une case.
             </summary>
             <param name="x">Coordonnée X</param>
             <param name="y">Coordonnée Y</param>
@@ -146,14 +165,14 @@
             Confronte 2 joueurs.
             </summary>
         </member>
-        <member name="F:BattleShip.Engine.Game.player1">
+        <member name="P:BattleShip.Engine.Game.Player1">
             <summary>
-            Joueurs en confrontation.
+            Joueur 1.
             </summary>
         </member>
-        <member name="F:BattleShip.Engine.Game.player2">
+        <member name="P:BattleShip.Engine.Game.Player2">
             <summary>
-            Joueurs en confrontation.
+            Joueur 2.
             </summary>
         </member>
         <member name="P:BattleShip.Engine.Game.State">
@@ -268,6 +287,21 @@
             Place les navires sur le plateau.
             </summary>
         </member>
+        <member name="T:BattleShip.Engine.PlayerState">
+            <summary>
+            Etat du joueur.
+            </summary>
+        </member>
+        <member name="F:BattleShip.Engine.PlayerState.Playing">
+            <summary>
+            Entrain de jouer.
+            </summary>
+        </member>
+        <member name="F:BattleShip.Engine.PlayerState.Lost">
+            <summary>
+            A perdu.
+            </summary>
+        </member>
         <member name="T:BattleShip.Engine.Ship">
             <summary>
             Navire.
@@ -275,13 +309,11 @@
         </member>
         <member name="P:BattleShip.Engine.Ship.TopLeft">
             <summary>
-            Position de la proue.
             Position bas / droite.
             </summary>
         </member>
         <member name="P:BattleShip.Engine.Ship.BottomRight">
             <summary>
-            Position de la poupe.
             Position haut / gauche.
             </summary>
         </member>
@@ -303,6 +335,11 @@
         <member name="P:BattleShip.Engine.Ship.State">
             <summary>
             Etat du navire: Intact, touché ou coulé.
+            </summary>
+        </member>
+        <member name="P:BattleShip.Engine.Ship.ClassOfShipInfo">
+            <summary>
+            Information sur la classe du navire.
             </summary>
         </member>
         <member name="P:BattleShip.Engine.Ship.Class">

@@ -5,6 +5,10 @@
     <TargetFramework>netcoreapp3.0</TargetFramework>
   </PropertyGroup>
 
+  <PropertyGroup>
+    <DocumentationFile>Doc/BattleShip.Host.MonoGame.xml</DocumentationFile>
+  </PropertyGroup>
+
   <ItemGroup>
     <MonoGameContentReference Include="**\*.mgcb" />
   </ItemGroup>
@@ -18,6 +22,10 @@
     <ProjectReference Include="..\BattleShip.Engine\BattleShip.Engine.csproj" />
     <ProjectReference Include="..\BattleShip.Partner.IA\BattleShip.PlayerBehavior.IA.csproj" />
     <ProjectReference Include="..\BattleShip.Partner\BattleShip.PlayerBehavior.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Doc\" />
   </ItemGroup>
 
 </Project>
