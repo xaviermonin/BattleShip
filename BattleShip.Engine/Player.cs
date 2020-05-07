@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Linq;
+using BattleShip.Engine.Exception;
 
 namespace BattleShip.Engine
 {
@@ -33,7 +34,17 @@ namespace BattleShip.Engine
         public Board Board { get; }
 
         /// <summary>
-        /// Etat du joueur: A gagné, perdu.
+        /// Autorisation de tir en cours.
+        /// </summary>
+        private FireAuthorization FireAuthorization { get; set; }
+
+        /// <summary>
+        /// Entrain de tirer ?
+        /// </summary>
+        public bool Shooting => FireAuthorization?.FireDone == false;
+
+        /// <summary>
+        /// Etat du joueur: Gagné/Perdu
         /// </summary>
         public PlayerState State
         {
@@ -47,12 +58,17 @@ namespace BattleShip.Engine
         }
 
         /// <summary>
-        /// Tir sur le joueur ennemi.
+        /// Demande au joueur de tirer sur joueur ennemi.
         /// </summary>
         /// <param name="enemy"></param>
         internal void Fire(Player enemy)
         {
-            Behavior.Fire(new FireAuthorization(enemy));
+            if (Shooting)
+                throw new InvalidFireException("Le joueur est déjà entrain de tirer.");
+
+            FireAuthorization = new FireAuthorization(enemy);
+
+            Behavior.Fire(FireAuthorization);
         }
 
         /// <summary>

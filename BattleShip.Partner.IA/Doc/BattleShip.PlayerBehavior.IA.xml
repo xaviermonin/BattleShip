@@ -4,6 +4,22 @@
         <name>BattleShip.PlayerBehavior.IA</name>
     </assembly>
     <members>
+        <member name="T:BattleShip.PlayerBehavior.IA.HumanConsoleBehavior">
+            <summary>
+            IA intelligente.
+            </summary>
+        </member>
+        <member name="P:BattleShip.PlayerBehavior.IA.HumanConsoleBehavior.ShipPositions">
+            <summary>
+            Donne des positions fixes aux navires sur le plateau.
+            </summary>
+        </member>
+        <member name="M:BattleShip.PlayerBehavior.IA.HumanConsoleBehavior.Fire(BattleShip.PlayerBehavior.IFireAuthorization)">
+            <summary>
+            Tire sur le plateau adverse.
+            </summary>
+            <param name="fireAuthorization"></param>
+        </member>
         <member name="T:BattleShip.PlayerBehavior.IA.PacifistBehavior">
             <summary>
             IA pacisfist. Ne tire jamais et ne peut donc jamais gagner.

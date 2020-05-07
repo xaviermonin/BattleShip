@@ -1,6 +1,7 @@
 ﻿using BattleShip.Engine;
 using BattleShip.PlayerBehavior;
 using System;
+using System.ComponentModel;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -44,17 +45,22 @@ namespace BattleShip.Simulator
         /// </summary>
         public MatchesResult RunMultiplesMatches()
         {
-            int player1Victories = 0, player2Victories = 0;
+            int player1Victories = 0, player2Victories = 0, draws = 0;
 
             Parallel.For(0, _nbIterations, i =>
             {
-                if (RunOneMatch() == GameWinner.Player1)
-                    Interlocked.Increment(ref player1Victories);
-                else
-                    Interlocked.Increment(ref player2Victories);
+                var gameWinner = RunOneMatch();
+                switch (gameWinner)
+                {
+                    case GameWinner.Player1: Interlocked.Increment(ref player1Victories); break;
+                    case GameWinner.Player2: Interlocked.Increment(ref player2Victories); break;
+                    case GameWinner.Draw: Interlocked.Increment(ref draws); break;
+                    default:
+                        throw new InvalidEnumArgumentException($"{nameof(gameWinner)} non pris en charge.");
+                }
             });
 
-            return new MatchesResult(player1Victories, player2Victories, _behaviorType1, _behaviorType2);
+            return new MatchesResult(player1Victories, player2Victories, draws, _behaviorType1, _behaviorType2);
         }
 
         /// <summary>
@@ -72,7 +78,7 @@ namespace BattleShip.Simulator
             while (game.State != GameState.End)
                 game.Update();
 
-            return game.Winner;
+            return game.Winner.Value;
         }
     }
 }

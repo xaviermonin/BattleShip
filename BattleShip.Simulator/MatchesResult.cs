@@ -56,6 +56,11 @@ namespace BattleShip.Simulator
         public int Player2Victories { get; }
 
         /// <summary>
+        /// Nombre de matches nuls.
+        /// </summary>
+        public int Draws { get; }
+
+        /// <summary>
         /// Taux de victoire du joueur 1.
         /// Exprimé de 0 à 1.
         /// </summary>
@@ -82,7 +87,7 @@ namespace BattleShip.Simulator
         /// <summary>
         /// Nombre total de matches joués par les joueurs.
         /// </summary>
-        public int TotalMatches => Player1Victories + Player2Victories;
+        public int TotalMatches => Player1Victories + Player2Victories + Draws;
 
         /// <summary>
         /// Constructeur d'un résultat de matches.
@@ -91,13 +96,14 @@ namespace BattleShip.Simulator
         /// <param name="player2Victories">Nombre de victoires du joueur 2.</param>
         /// <param name="behavior1">Comportement du joueur 1.</param>
         /// <param name="behavior2">Comportement du joueur 2.</param>
-        internal MatchesResult(int player1Victories, int player2Victories, Type behavior1, Type behavior2)
+        internal MatchesResult(int player1Victories, int player2Victories, int draws, Type behavior1, Type behavior2)
         {
             if (player1Victories + player2Victories < 1)
                 throw new ArgumentException("Le nombre total de matches joués doit être supérieur à 0");
 
             Player1Victories = player1Victories;
             Player2Victories = player2Victories;
+            Draws = draws;
 
             _behavior1 = behavior1;
             _behavior2 = behavior2;

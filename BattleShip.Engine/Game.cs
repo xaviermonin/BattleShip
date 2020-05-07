@@ -28,18 +28,25 @@ namespace BattleShip.Engine
         public GameState State { get; private set; }
 
         /// <summary>
+        /// Etat de l'exécution du jeu.
+        /// </summary>
+        public RunningState RunningState { get; private set; }
+
+        /// <summary>
         /// Joueur victorieux de cette partie.
         /// </summary>
-        public GameWinner Winner
+        public GameWinner? Winner
         {
             get
             {
-                if (Player1.State == PlayerState.Lost)
-                    return GameWinner.Player2;
+                if (Player1.State == PlayerState.Lost && Player2.State == PlayerState.Lost)
+                    return GameWinner.Draw;
                 else if (Player1.State == PlayerState.Lost)
+                    return GameWinner.Player2;
+                else if (Player2.State == PlayerState.Lost)
                     return GameWinner.Player1;
 
-                return GameWinner.None;
+                return null;
             }
         }
 
@@ -85,20 +92,22 @@ namespace BattleShip.Engine
 
             if (State != GameState.Running)
                 throw new InvalidOperationException("Etat du jeu invalide.");
-            
-            Player1.Fire(Player2);
-            if (Player1.State == PlayerState.Lost)
+
+            if (Player1.Shooting || Player2.Shooting)
+                return; // En attente d'un tir
+
+            if (Player1.State == PlayerState.Lost || Player2.State == PlayerState.Lost)
             {
                 State = GameState.End;
                 return;
             }
 
+            // Demande aux deux joueurs de tirer en même temps.
+            // Le statut de la partie est déterminé une fois les tirs de chaque joueur résolus.
+            // Une égalité est donc possible si les 2 joueurs ont coulés leur dernier navire enemi pendant le même tour.
+
+            Player1.Fire(Player2);
             Player2.Fire(Player1);
-            if (Player2.State == PlayerState.Lost)
-            {
-                State = GameState.End;
-                return;
-            }
         }
     }
 }

@@ -6,9 +6,9 @@
     public enum GameWinner
     {
         /// <summary>
-        /// Aucun ou non concerné.
+        /// Match nul.
         /// </summary>
-        None,
+        Draw,
         /// <summary>
         /// Joueur 1.
         /// </summary>

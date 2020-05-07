@@ -142,7 +142,7 @@
             Permet d'effectuer un tir sur le plateau ennemi et d'obtenir le résultat du tir.
             </summary>
         </member>
-        <member name="F:BattleShip.Engine.FireAuthorization.fire">
+        <member name="P:BattleShip.Engine.FireAuthorization.FireDone">
             <summary>
             Tir effectué ?
             </summary>
@@ -178,6 +178,11 @@
         <member name="P:BattleShip.Engine.Game.State">
             <summary>
             Etat de la partie.
+            </summary>
+        </member>
+        <member name="P:BattleShip.Engine.Game.RunningState">
+            <summary>
+            Etat de l'exécution du jeu.
             </summary>
         </member>
         <member name="P:BattleShip.Engine.Game.Winner">
@@ -234,9 +239,9 @@
             Joueur victorieux.
             </summary>
         </member>
-        <member name="F:BattleShip.Engine.GameWinner.None">
+        <member name="F:BattleShip.Engine.GameWinner.Draw">
             <summary>
-            Aucun ou non concerné.
+            Match nul.
             </summary>
         </member>
         <member name="F:BattleShip.Engine.GameWinner.Player1">
@@ -271,14 +276,24 @@
             Plateau de jeu du joueur.
             </summary>
         </member>
+        <member name="P:BattleShip.Engine.Player.FireAuthorization">
+            <summary>
+            Autorisation de tir en cours.
+            </summary>
+        </member>
+        <member name="P:BattleShip.Engine.Player.Shooting">
+            <summary>
+            Entrain de tirer ?
+            </summary>
+        </member>
         <member name="P:BattleShip.Engine.Player.State">
             <summary>
-            Etat du joueur: A gagné, perdu.
+            Etat du joueur: Gagné/Perdu
             </summary>
         </member>
         <member name="M:BattleShip.Engine.Player.Fire(BattleShip.Engine.Player)">
             <summary>
-            Tir sur le joueur ennemi.
+            Demande au joueur de tirer sur joueur ennemi.
             </summary>
             <param name="enemy"></param>
         </member>
@@ -300,6 +315,26 @@
         <member name="F:BattleShip.Engine.PlayerState.Lost">
             <summary>
             A perdu.
+            </summary>
+        </member>
+        <member name="T:BattleShip.Engine.RunningState">
+            <summary>
+            Etat de l'exécution du jeu.
+            </summary>
+        </member>
+        <member name="F:BattleShip.Engine.RunningState.NotRunning">
+            <summary>
+            Le jeu n'est pas en cours d'exécution.
+            </summary>
+        </member>
+        <member name="F:BattleShip.Engine.RunningState.WaitingPlayer1">
+            <summary>
+            En attente du joueur 1.
+            </summary>
+        </member>
+        <member name="F:BattleShip.Engine.RunningState.WaitingPlayer2">
+            <summary>
+            En attente du joueur 2.
             </summary>
         </member>
         <member name="T:BattleShip.Engine.Ship">

@@ -27,7 +27,7 @@ namespace BattleShip.Host.MonoGame
             {
                 PreferredBackBufferWidth = 1600,
                 PreferredBackBufferHeight = 900,
-                IsFullScreen = true,
+                //IsFullScreen = true,
                 SupportedOrientations = DisplayOrientation.LandscapeRight
             };
 
@@ -37,7 +37,7 @@ namespace BattleShip.Host.MonoGame
             IsMouseVisible = true;
 
             game = new Engine.Game();
-            game.InitializePlayers(new SmartBehavior(), new RandomBehavior());
+            game.InitializePlayers(new SmartBehavior(), new HumanConsoleBehavior());
         }
 
         protected override void Initialize()

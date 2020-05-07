@@ -93,6 +93,11 @@
             Nombre de victoire du joueur 2.
             </summary>
         </member>
+        <member name="P:BattleShip.Simulator.MatchesResult.Draws">
+            <summary>
+            Nombre de matches nuls.
+            </summary>
+        </member>
         <member name="P:BattleShip.Simulator.MatchesResult.Player1WinRate">
             <summary>
             Taux de victoire du joueur 1.
@@ -122,7 +127,7 @@
             Nombre total de matches joués par les joueurs.
             </summary>
         </member>
-        <member name="M:BattleShip.Simulator.MatchesResult.#ctor(System.Int32,System.Int32,System.Type,System.Type)">
+        <member name="M:BattleShip.Simulator.MatchesResult.#ctor(System.Int32,System.Int32,System.Int32,System.Type,System.Type)">
             <summary>
             Constructeur d'un résultat de matches.
             </summary>

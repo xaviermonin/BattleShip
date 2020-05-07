@@ -15,7 +15,7 @@ namespace BattleShip.Engine
         /// <summary>
         /// Tir effectué ?
         /// </summary>
-        private bool fire = false;
+        internal bool FireDone { get; set; } = false;
 
         public FireAuthorization(Player enemy)
         {
@@ -34,10 +34,10 @@ namespace BattleShip.Engine
         /// <returns></returns>
         public FireResult Fire(Point coordonate)
         {
-            if (fire)
+            if (FireDone)
                 throw new InvalidOperationException("Vous ne pouvez tirer qu'une seule fois par autorisation de tir !");
 
-            fire = true;
+            FireDone = true;
 
             return Board.Fire(coordonate);
         }
