@@ -6,7 +6,7 @@
     <members>
         <member name="T:BattleShip.PlayerBehavior.IA.HumanConsoleBehavior">
             <summary>
-            IA intelligente.
+            Demande à un humain de saisir les coordonnées de tir.
             </summary>
         </member>
         <member name="P:BattleShip.PlayerBehavior.IA.HumanConsoleBehavior.ShipPositions">

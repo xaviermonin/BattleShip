@@ -37,7 +37,7 @@ namespace BattleShip.Host.MonoGame
             IsMouseVisible = true;
 
             game = new Engine.Game();
-            game.InitializePlayers(new SmartBehavior(), new HumanConsoleBehavior());
+            game.InitializePlayers(new SmartBehavior(), new RandomBehavior());
         }
 
         protected override void Initialize()
@@ -69,7 +69,7 @@ namespace BattleShip.Host.MonoGame
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
-            if (Keyboard.GetState().IsKeyDown(Keys.Enter))
+            //if (Keyboard.GetState().IsKeyDown(Keys.Enter))
                 start = true;
 
             player1Board.Update();

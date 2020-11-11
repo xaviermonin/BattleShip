@@ -14,11 +14,11 @@ namespace BattleShip.Host.Simulator
         /// <summary>
         /// Comportement du joueur 2.
         /// </summary>
-        static readonly Type behaviorType2 = typeof(SmartBehavior);
+        static readonly Type behaviorType2 = typeof(RandomBehavior);
 
         static void Main()
         {
-            Console.WriteLine("Simulateur de bataile navale.");
+            Console.WriteLine("Battle ship - Simulator.");
 
             Console.WriteLine($"{behaviorType1.Name} VS {behaviorType2.Name}. Fight !");
 
@@ -26,11 +26,11 @@ namespace BattleShip.Host.Simulator
 
             var matchResult = battleShipSimulator.RunMultiplesMatches();
 
-            Console.WriteLine($"La meilleur IA est : {matchResult.WinnerBehaviorType.Name}.");
-            Console.WriteLine($"Le taux de victoire est de {matchResult.WinnerWinRate:P2}");
-            Console.WriteLine($"Victoires du gagnant: {matchResult.WinnerVictories}.");
-            Console.WriteLine($"Victoire du perdant: {matchResult.LooserVictories}.");
-            Console.WriteLine($"Matches nuls: {matchResult.Draws}.");
+            Console.WriteLine($"Best IA: {matchResult.WinnerBehaviorType.Name}.");
+            Console.WriteLine($"Victory rate of the best IA: {matchResult.WinnerWinRate:P2}");
+            Console.WriteLine($"Winner victories: {matchResult.WinnerVictories}.");
+            Console.WriteLine($"Looser victories: {matchResult.LooserVictories}.");
+            Console.WriteLine($"Draws: {matchResult.Draws}.");
         }
     }
 }
